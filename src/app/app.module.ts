@@ -11,6 +11,9 @@ import { OneProductCommponentComponent } from './one-product-commponent/one-prod
 import { OneCategoryCommponentComponent } from './one-category-commponent/one-category-commponent.component';
 import { CartCommponentComponent } from './cart-commponent/cart-commponent.component';
 import { FavouritCommponentComponent } from './favourit-commponent/favourit-commponent.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import{ HttpClientModule} from '@angular/common/http';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,17 @@ import { FavouritCommponentComponent } from './favourit-commponent/favourit-comm
     OneProductCommponentComponent,
     OneCategoryCommponentComponent,
     CartCommponentComponent,
-    FavouritCommponentComponent
+    FavouritCommponentComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
