@@ -10,13 +10,13 @@ import { OneProductCommponentComponent } from './one-product-commponent/one-prod
 
 const routes: Routes = [
  
-  {path:'',redirectTo:'/Home-Commponent',pathMatch:'full'},
-  {path:'Home-Commponent',component:HomeCommponentComponent},
-  {path:'Cart-commponent',component:CartCommponentComponent},
-  {path:'FavouritCommponent',component:FavouritCommponentComponent},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'home',component:HomeCommponentComponent},
+  {path:'cart',component:CartCommponentComponent},
+  {path:'favourit',component:FavouritCommponentComponent},
   {path:'Login',component:LoginComponent},
-  {path:'OneCategory-Commponent',component:OneCategoryCommponentComponent},
-  {path:'OneProduct-Commponent',component:OneProductCommponentComponent},
+  {path:'category/:id',component:OneCategoryCommponentComponent},
+  {path:'product',component:OneProductCommponentComponent},
   {path:'**',component:NotFoundPageComponent},
 
 

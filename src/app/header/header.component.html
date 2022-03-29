@@ -1,46 +1,14 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">الأصلى</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">الرئيسية
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">رجالى</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">نسائى</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">أطفالى</a>
-        </li>
-      
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="بحث">&nbsp;&nbsp;
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">بحث</button>
-      </form>
-    </div>
-  </div>
-</nav> -->
 
 <header class="header_section">
   <div class="header_top">
     <div class="container-fluid">
       <div class="top_nav_container">
         <div class="contact_nav">
-          <a href="">
+          <a routerLink="">
             <i class="fa fa-phone" aria-hidden="true"></i>
             <span> للتواصل : +01 123455678990 </span>
           </a>
-          <a href="">
+          <a routerLink="">
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <span> البريد : demo@gmail.com </span>
           </a>
@@ -53,12 +21,14 @@
         </form>
        
         <div class="user_option_box">
-          <a href="" class="account-link">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span> تسجيل الخول </span>
+          <a routerLink="/Login" class="account-link">
+            <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+            
+            <span> تسجيل الدخول </span>
           </a>
-          <a href="" class="cart-link">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <a routerLink="" class="cart-link">
+            <i class="fas fa-user-circle" aria-hidden="true"></i>
+            
             <span> إنشاء حساب </span>
           </a>
         </div>
@@ -68,7 +38,7 @@
   <div class="header_bottom">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg custom_nav-container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" routerLink="index.html">
           <span> الأصلى </span>
         </a>
 
@@ -87,31 +57,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html"
+              <a class="nav-link" routerLink="/home"
                 >الرئيسية </a
               >
               <!-- <span class="sr-only">(current)</span> -->
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html"> رجالى</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="product.html">نسائى</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="why.html">أطفالى</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonial.html"></a>
-            </li>
+
+            <li *ngFor="let categ of  AllCategories"  class="nav-item">
+              <a class="nav-link" routerLink="#" (click)="GetOneCategory(categ.id)"> {{categ.name}}</a>
             
           </ul>
           <div class="user_option_box">
-            <a href="" class="account-link">
+            <a routerLink="" class="account-link">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span> حسابى </span>
             </a>
-            <a href="" class="cart-link">
+            <a routerLink="" class="cart-link">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <span> المشتريات </span>
             </a>
