@@ -1,35 +1,3 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" routerLink="#">الأصلى</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="#">الرئيسية
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="#">رجالى</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="#">نسائى</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="#">أطفالى</a>
-        </li>
-      
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="بحث">&nbsp;&nbsp;
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">بحث</button>
-      </form>
-    </div>
-  </div>
-</nav> -->
 
 <header class="header_section">
   <div class="header_top">
@@ -53,12 +21,14 @@
         </form>
        
         <div class="user_option_box">
-          <a routerLink="" class="account-link">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span> تسجيل الخول </span>
+          <a routerLink="/Login" class="account-link">
+            <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+            
+            <span> تسجيل الدخول </span>
           </a>
           <a routerLink="" class="cart-link">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <i class="fas fa-user-circle" aria-hidden="true"></i>
+            
             <span> إنشاء حساب </span>
           </a>
         </div>
@@ -68,7 +38,7 @@
   <div class="header_bottom">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg custom_nav-container">
-        <a class="navbar-brand" routerLink="">
+        <a class="navbar-brand" routerLink="index.html">
           <span> الأصلى </span>
         </a>
 
@@ -87,23 +57,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" routerLink=""
+              <a class="nav-link" routerLink="/home"
                 >الرئيسية </a
               >
               <!-- <span class="sr-only">(current)</span> -->
             </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/OneCategory-Commponent"> رجالى</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/OneCategory-Commponent">نسائى</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/OneCategory-Commponent">أطفالى</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="testimonial.html"></a>
-            </li>
+
+            <li *ngFor="let categ of  AllCategories"  class="nav-item">
+              <a class="nav-link" routerLink="#" (click)="GetOneCategory(categ.id)"> {{categ.name}}</a>
             
           </ul>
           <div class="user_option_box">
