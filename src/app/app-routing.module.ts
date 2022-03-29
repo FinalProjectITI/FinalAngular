@@ -18,10 +18,7 @@ const routes: Routes = [
   {path:'OneCategory-Commponent',component:OneCategoryCommponentComponent},
   {path:'OneProduct-Commponent',component:OneProductCommponentComponent},
   {path:'**',component:NotFoundPageComponent},
-
-
-  
-  
+ 
 ];
 
 @NgModule({
