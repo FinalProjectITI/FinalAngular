@@ -1,1 +1,108 @@
-<p>cart-commponent works!</p>
+
+
+
+
+<!-- slider
+<div class="container-fluid">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img  src="/assets/Images/banner.jpg"  style="height: 300px;"class="d-block w-100 h-10" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: #d7bb3e; font-size: 50px; font-weight: 800;">shopping cart</h5>
+               
+          </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!--slider-->
+    -->
+   
+     
+    <ng-container *ngIf="false">
+        <div class="container">
+        <table class="table table-borderless " style="direction: rtl;">
+            
+      
+       
+        <thead>
+          <tr class="table-dark  " style="height: 50px;font-size: 30px;">
+            <th>المنتج</th>
+            <th scope="col">السعر</th>
+            <th scope="col">الكمية</th>
+            <th scope="col">الأجمالي</th>
+            <th scope="col"></th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <div class="card mb-3" style="max-width: 540px; border: none;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="/assets/images/cap.png" class="img-fluid rounded-start" alt="..."> 
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title" style="padding-top:30px;">منتج اصلي فاخر</h5>
+                          <p class="card-text"><small class="text-muted" ></small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+           </td>
+             <td class="th-padding">
+                 <input type="text" name="Quntity" class="quntity-text text-center">
+                
+             </td>
+            <td class="th-padding" ></td>
+            <td class="th-padding"></td>
+            <td class="th-padding" >
+                <button type="button" class="btn btn-changing">حذف</button>
+                
+            </td>
+          </tr>
+          <tr>
+            <td><button  class="btn btn-changing">حذف الكل</button>
+            <button  class="btn btn-changing">تعديل</button></td>
+            
+          </tr>
+        </tbody>
+    </table>
+    <div>
+      <img src="/assets/Images/onlineCART4.jpg" style="width: 500px;">
+    </div>
+    <div  style="display:flex">
+    <div>
+      <a routerLink="/OneCategory-Commponent" class=" btn btn-changing">متابعة التسوق</a>
+  </div>
+  <div style="margin-left: 30px;">
+      <a href="#" class="btn btn-changing "  style="float:right">الدفع</a>
+  </div>
+        </div>
+        </div>
+       
+        
+    
+  
+  </ng-container>
+
+    <ng-container  >
+        <div class="container">
+            <div class="card  text-white  Cart-div" >
+                <img src="/assets/images/cart4.jpg"  class="card-img img_cart" alt="...">
+                السله فارغة
+                <div class="card-img-overlay">
+                  <h5 class="text-center sala_font">السلة فارغة</h5>
+                </div>
+                
+              </div>
+              <a  routerLink="/OneCategory-Commponent" class="btn btn-changing ">أضافة منتجات</a>
+              
+      
+    </div>
+
+  </ng-container>
+
