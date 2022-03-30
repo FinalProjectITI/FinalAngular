@@ -1,5 +1,5 @@
-  
-    <ng-container *ngIf="false">
+    
+    <ng-container *ngIf="true">
         <div class="container">
         <table class="table table-borderless " style="direction: rtl;">
             
@@ -7,7 +7,7 @@
        
         <thead>
           <tr class="table-dark  " style="height: 50px;font-size: 30px;">
-            <th>المنتج</th>
+            <th id="monatag-word">المنتج</th>
             <th scope="col">السعر</th>
             <th scope="col">الكمية</th>
             <th scope="col">الأجمالي</th>
@@ -23,7 +23,7 @@
                       <div class="col-md-4">
                         <img src="/assets/images/cap.png" class="img-fluid rounded-start" alt="..."> 
                       </div>
-                      <div class="col-md-8">
+                      <div class="col-md-8 card-cart-div">
                         <div class="card-body">
                           <h5 class="card-title" style="padding-top:30px;">منتج اصلي فاخر</h5>
                           <p class="card-text"><small class="text-muted" ></small></p>
@@ -33,25 +33,59 @@
                   </div>
            </td>
              <td class="th-padding">
-                 <input type="text" name="Quntity" class="quntity-text text-center">
+             15
                 
              </td>
-            <td class="th-padding" ></td>
-            <td class="th-padding"></td>
+            <td class="th-padding" >3</td>
+            <td class="th-padding">45</td>
             <td class="th-padding" >
                 <button type="button" class="btn btn-changing">حذف</button>
                 
             </td>
           </tr>
+         
+          <!-- multy product static -->
           <tr>
-            <td><button  class="btn btn-changing">حذف الكل</button>
+            <td>
+                <div class="card mb-3" style="max-width: 540px; border: none;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="/assets/images/cap.png" class="img-fluid rounded-start" alt="..."> 
+                      </div>
+                      <div class="col-md-8 card-cart-div" >
+                        <div class="card-body">
+                          <h5 class="card-title" style="padding-top:30px;">منتج اصلي فاخر</h5>
+                          <p class="card-text"><small class="text-muted" ></small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+           </td>
+             <td class="th-padding">
+             15
+                
+             </td>
+            <td class="th-padding" >3</td>
+            <td class="th-padding">45</td>
+            <td class="th-padding" >
+              <button type="button" class="btn btn-changing">حذف</button>
+              
+          </td>
+           
+          </tr>
+          
+          
+          <!-- end -->
+          <tr>
+            <td>
+              <button  class="btn btn-changing">حذف الكل</button>
             <button  class="btn btn-changing">تعديل</button></td>
-            
           </tr>
         </tbody>
     </table>
     <div>
-      <img src="/assets/Images/onlineCART4.jpg" style="width: 500px;">
+      <h1 id="egmaly-word">الأجمالي</h1>
+       <h1 id="h1-egmaly-cart"> 5000</h1>
     </div>
     <div  style="display:flex">
     <div>
@@ -72,13 +106,12 @@
         <div class="container">
             <div class="card  text-white  Cart-div" >
                 <img src="/assets/images/cart4.jpg"  class="card-img img_cart" alt="...">
-                السله فارغة
-                <div class="card-img-overlay">
+                              <div class="card-img-overlay">
                   <h5 class="text-center sala_font">السلة فارغة</h5>
                 </div>
                 
               </div>
-              <a  routerLink="/OneCategory-Commponent" class="btn btn-changing ">أضافة منتجات</a>
+              <a  routerLink="/product" class="btn btn-changing ">أضافة منتجات</a>
               
       
     </div>
