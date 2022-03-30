@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategortService } from '../services/categort.service';
+import {  CategoryService } from '../services/category.service';
 import { ICategory } from '../Shared Classes/ICategory';
 
 @Component({
@@ -11,7 +11,7 @@ import { ICategory } from '../Shared Classes/ICategory';
 export class HeaderComponent implements OnInit {
   AllCategories?:ICategory[]
   errmsg="";
-  constructor(private categorysevice: CategortService,private router:Router) { }
+  constructor(private categorysevice: CategoryService,private router:Router) { }
 
   ngOnInit(): void {
     this.categorysevice.GetAllCategories().subscribe(
