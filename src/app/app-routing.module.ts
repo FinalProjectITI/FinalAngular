@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'favourit',component:FavouritCommponentComponent},
   {path:'login',component:LoginComponent},
   {path:'category/:id',component:OneCategoryCommponentComponent},
-  {path:'product',component:OneProductCommponentComponent},
+  {path:'product/:id',component:OneProductCommponentComponent},
   {path:'register',component:RegisterComponent},
   {path:'**',component:NotFoundPageComponent},
  
