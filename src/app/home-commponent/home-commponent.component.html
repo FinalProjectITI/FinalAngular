@@ -1,7 +1,7 @@
 
 <br>
 <!-- Category -->
-<section class="page-section bg-muted text-dark">
+<!-- <section class="page-section bg-muted text-dark">
     <div class="container text-center">
 
         <h2>الفئات</h2>
@@ -30,7 +30,7 @@
             </li>
         </ul>
     </div>
-</section>
+</section> -->
 <br><br>
 <!-- New Products -->
 <section class="page-section bg-muted text-white">
@@ -39,49 +39,16 @@
         <div class="row text-dark shadow-lg bg-white" style="padding: 30px;">
             <h3 class="text-dark">موديلات جديدة</h3><br><br>
             <hr class="bg-danger"><br>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div *ngFor="let product of Products" class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                 <div class="card container shadow"><br>
                     <div class="brand-box bg-light">
-                        <span class="badge bg-danger text-white" style="position: absolute;">جديد</span>
-                        <i><img src="https://www.pngall.com/wp-content/uploads/2016/04/T-Shirt-PNG-Pic.png"
+                        <span class="badge bg-danger text-white" style="position: absolute;">{{product.discount}} %</span>
+                        <i><img src={{product.firstImage}}
                                 style="height: 200px;">
                         </i><br><br>
-                        <h6>السعر $<span>100</span></h6>
+                        <h6>السعر $<span>{{product.price}}</span></h6>
                     </div><br>
-                    <a routerLink="/product" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card container shadow"><br>
-                    <div class="brand-box bg-light">
-                        <span class="badge bg-danger text-white" style="position: absolute;">جديد</span>
-                        <i><img src="https://i.pinimg.com/originals/4e/be/50/4ebe50e2495b17a79c31e48a0e54883f.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card container shadow"><br>
-                    <div class="brand-box bg-light">
-                        <span class="badge bg-danger text-white" style="position: absolute;">جديد</span>
-                        <i><img src="https://www.pinclipart.com/picdir/big/76-760505_t-shirt-png-red-t-shirt-template-png.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card container shadow"><br>
-                    <div class="brand-box bg-light">
-                        <span class="badge bg-danger text-white" style="position: absolute;">جديد</span>
-                        <i><img src="https://i.pinimg.com/originals/4e/be/50/4ebe50e2495b17a79c31e48a0e54883f.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
+                    <a (click)="GoToProduct(product.id)" class="btn btn-sm btn-dark">عرض</a><br>
                 </div>
             </div>
             <br><br>
@@ -90,168 +57,7 @@
     </div>
 </section>
 <br><br>
-<!-- Category Products -->
-<section class="page-section bg-muted text-white">
-    <div class="container text-center">
 
-        <div class="row text-dark shadow-lg bg-white" style="padding: 30px;">
-            <h3 class="text-dark">رجالي</h3><br><br>
-            <hr class="bg-primary"><br>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://i.pinimg.com/originals/f3/0e/8b/f30e8b236fff35e4e71e4428d808324c.png"
-                                style="height: 200px;">
-                        </i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://www.pngkit.com/png/full/252-2525015_picture-black-and-white-prana-bronson-men-s.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://www.pinclipart.com/picdir/big/76-760505_t-shirt-png-red-t-shirt-template-png.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://i.pinimg.com/originals/4e/be/50/4ebe50e2495b17a79c31e48a0e54883f.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <br><br>
-        </div>
-
-    </div>
-</section>
-<br><br>
-<!-- Category Products -->
-<section class="page-section bg-muted text-white">
-    <div class="container text-center">
-
-        <div class="row text-dark shadow-lg bg-white" style="padding: 30px;">
-            <h3 class="text-dark">حريمي</h3><br><br>
-            <hr class="bg-primary"><br>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://i.pinimg.com/originals/f3/0e/8b/f30e8b236fff35e4e71e4428d808324c.png"
-                                style="height: 200px;">
-                        </i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://www.pngkit.com/png/full/252-2525015_picture-black-and-white-prana-bronson-men-s.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://www.pinclipart.com/picdir/big/76-760505_t-shirt-png-red-t-shirt-template-png.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://i.pinimg.com/originals/4e/be/50/4ebe50e2495b17a79c31e48a0e54883f.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <br><br>
-        </div>
-
-    </div>
-</section>
-<br><br>
-<!-- Category Products -->
-<section class="page-section bg-muted text-white">
-    <div class="container text-center">
-
-        <div class="row text-dark shadow-lg bg-white" style="padding: 30px;">
-            <h3 class="text-dark">اطفالي</h3><br><br>
-            <hr class="bg-primary"><br>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://i.pinimg.com/originals/f3/0e/8b/f30e8b236fff35e4e71e4428d808324c.png"
-                                style="height: 200px;">
-                        </i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://www.pngkit.com/png/full/252-2525015_picture-black-and-white-prana-bronson-men-s.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://www.pinclipart.com/picdir/big/76-760505_t-shirt-png-red-t-shirt-template-png.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container shadow"><br>
-                    <div class="brand-box">
-                        <i><img src="https://i.pinimg.com/originals/4e/be/50/4ebe50e2495b17a79c31e48a0e54883f.png"
-                                style="height: 200px;"></i><br><br>
-                        <h6>السعر $<span>100</span></h6>
-                    </div><br>
-                    <a routerLink="" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
-            </div>
-            <br><br>
-        </div>
-
-    </div>
-</section>
-<br><br>
 <!-- Why Choose US -->
 <section class="page-section bg-muted text-dark">
     <div class="container text-center">
