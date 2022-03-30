@@ -1,1 +1,33 @@
-<p>login works!</p>
+<main role="main" class="inner cover container-fluid">
+    <br><br>
+    <h2 class="text-center">مصنع الأصلي للملابس</h2>
+    <br><br>
+    <div class="container col-4">
+        <div class="card-header regform text-white text-center shadow">
+            تسجيل الدخول
+        </div>
+        <form class="container card shadow">
+            <br>
+            <!--Username-->
+            <div class="form-group">
+                <label for="username">اسم المستخدم</label>
+                <input type="text" id="username" name="txtUsername" #username required class="form-control">
+            </div>
+
+            <!--Password-->
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <input type="password" id="password" name="txtPassword" #password required class="form-control">
+            </div>
+
+            <!--Login-->
+            <br>
+            <div class="d-grid gap-2">
+                <button (click)="doLogin(username.value,password.value)" class="btn btn-sm regform text-white" type="submit">دخول</button>
+            </div>
+            <br>
+            <small class="text-danger container text-center" *ngIf="!loginSuccess">المستخدم غير موجود</small>
+        </form>
+    </div>
+    <br><br><br>
+</main>

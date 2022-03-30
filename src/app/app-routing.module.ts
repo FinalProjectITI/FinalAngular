@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { OneCategoryCommponentComponent } from './one-category-commponent/one-category-commponent.component';
 import { OneProductCommponentComponent } from './one-product-commponent/one-product-commponent.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
  
@@ -14,9 +15,10 @@ const routes: Routes = [
   {path:'home',component:HomeCommponentComponent},
   {path:'cart',component:CartCommponentComponent},
   {path:'favourit',component:FavouritCommponentComponent},
-  {path:'Login',component:LoginComponent},
+  {path:'login',component:LoginComponent},
   {path:'category/:id',component:OneCategoryCommponentComponent},
   {path:'product',component:OneProductCommponentComponent},
+  {path:'register',component:RegisterComponent},
   {path:'**',component:NotFoundPageComponent},
  
 ];

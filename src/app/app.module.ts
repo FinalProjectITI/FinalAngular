@@ -14,6 +14,7 @@ import { FavouritCommponentComponent } from './favourit-commponent/favourit-comm
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{ HttpClientModule} from '@angular/common/http';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     OneCategoryCommponentComponent,
     CartCommponentComponent,
     FavouritCommponentComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
