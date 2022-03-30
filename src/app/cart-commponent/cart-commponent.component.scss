@@ -1,3 +1,4 @@
+
 .th-padding,.card-title{
     padding-top: 50px;
     font-size: 25px;
@@ -12,6 +13,11 @@
     .quntity-text{
         height: 50px;
         width: 50px;
+    }
+    #monatag-word
+    {
+     padding-right:70px;
+
     }
     
     .tr-cart-total{
@@ -41,10 +47,23 @@
     }
     .img_cart{
         height:500px;
+   
        
     }
     .sala_font{
+        color:red;
+        padding-top: 100px;
+    }
+    .sala_font,#h1-egmaly-cart,#egmaly-word{
         font-size:50px;
-        color: red;
-        padding-top:100px ;
+    }
+    .card-cart-div{
+        background-color:rgb(248, 248, 248);
+    }
+    #h1-egmaly-cart,#egmaly-word
+    {
+    
+        color:green;
+        margin-top: 50px;
+     
     }
