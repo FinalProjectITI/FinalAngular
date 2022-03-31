@@ -9,5 +9,7 @@ export interface IOneProduct{
     type:string,
     season:string,
     firstImage:string,
-    images:string[]
+    images:string[],
+    categoryID:number,
+    typeID:number
 }

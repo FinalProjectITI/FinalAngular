@@ -19,7 +19,7 @@ export class HomeCommponentComponent implements OnInit {
         this.Products=data ;},
       error=>{this.errormsg=this.errormsg}
     );
-    window.scrollTo(80,80);
+    window.scrollTo(0,0);
   }
 
   GoToProduct(id:number){
