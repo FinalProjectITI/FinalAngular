@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
 import { IProduct } from '../Shared Classes/IProduct';
 
@@ -12,7 +12,7 @@ export class SearchCommponentComponent implements OnInit {
   Products:IProduct[]=[]
   searchKey:string="";
   errorMsg="";
-  constructor(private route:ActivatedRoute,private searchservice:SearchService) { }
+  constructor(private route:ActivatedRoute,private searchservice:SearchService,private router:Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params:ParamMap)=>{
@@ -30,6 +30,7 @@ if(this.searchKey!=""){
   // }
 
   GoToProduct(id:number){
-
+    this.router.navigate(['product',id]);
+    window.scrollTo(80,80);
   }
 }
