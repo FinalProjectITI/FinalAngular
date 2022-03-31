@@ -11,7 +11,9 @@ import { ICategory } from '../Shared Classes/ICategory';
 export class HeaderComponent implements OnInit {
   AllCategories?: ICategory[]
   errmsg = "";
-
+classActive="nav-item active";
+isactive:string='0';
+clicked=0;
   constructor(private categorysevice: CategoryService, private router: Router) { }
 
   ngOnInit(): void {
@@ -25,5 +27,18 @@ export class HeaderComponent implements OnInit {
   }
   GetOneCategory(id: number) {
     this.router.navigate(['category', id]);
+    this.clicked=id;
+    this.isactive='-1';
+  }
+  goToHome(){
+    this.clicked=0;
+    this.isactive='0';
+    //this.router.navigate(['home'])
+  }
+  GoToSearch(value:string){
+    console.log(value)
+   if(value!="")
+    this.router.navigate(['search', value]);
+    else alert("الرجاء إدخال قيمة للبحث")
   }
 }
