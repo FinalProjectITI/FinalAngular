@@ -8,6 +8,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { OneCategoryCommponentComponent } from './one-category-commponent/one-category-commponent.component';
 import { OneProductCommponentComponent } from './one-product-commponent/one-product-commponent.component';
 import { RegisterComponent } from './register/register.component';
+import { SearchCommponentComponent } from './search-commponent/search-commponent.component';
 
 const routes: Routes = [
  
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'category/:id',component:OneCategoryCommponentComponent},
   {path:'product/:id',component:OneProductCommponentComponent},
+  {path:'search/:value',component:SearchCommponentComponent},
   {path:'register',component:RegisterComponent},
   {path:'**',component:NotFoundPageComponent},
  
