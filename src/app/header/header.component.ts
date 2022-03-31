@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
       },
       error => this.errmsg = error
     );
-    window.scrollTo(80,80);
+    window.scrollTo(0,0);
   }
   GetOneCategory(id: number) {
     this.router.navigate(['category', id]);

@@ -1,7 +1,7 @@
 <main role="main" class="inner cover container-fluid">
     <br>
     <div class="container col-4">
-        <div class="card-header regform text-center text-white shadow">
+        <div class="card-header defcolor text-center text-white shadow">
             تسجيل مستخدم
         </div>
         <form class="container card border-success border-2 shadow" #userForm="ngForm" novalidate
@@ -86,7 +86,7 @@
             <br>
             <div class="d-grid gap-2">
                 <button (click)="doRegist(email.value,about.value,username.value,password.value,conPassword.value)"
-                    class="btn btn-sm regform text-white" type="submit"
+                    class="btn btn-sm defcolor text-white" type="submit"
                     [disabled]="userForm.form.invalid">تسجيل</button>
             </div>
             <br>

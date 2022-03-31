@@ -39,18 +39,20 @@
             <h3 class="text-dark">{{CategoryName}}</h3><br><br>
             <hr class="bg-primary"><br>
            
-            <div *ngFor="let product of Products" class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card border-0 bg-light container"><br>
+            <div *ngFor="let product of Products" class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card bg-light container"><br>
+                    <h5>{{product.name}}</h5>
                     <div class="brand-box">
-                        <i><img src= {{product.firstImage}} style="height: 200px;">
-                        </i><br><br>
+                        <div *ngIf="product.discount > 0" class="badge bg-danger text-white"
+                            style="position: absolute;">{{product.discount}} %</div>
+                        <i><img class="col-xl-10 col-lg-12 col-md-10 col-sm-12" src= {{product.firstImage}} style="height: 180px;">
+                        </i><br>
+                        <i class="fa-duotone fa-heart"></i>
                         <h6>السعر $<span>{{product.price}}</span></h6>
-                    </div><br>
-                    <a (click)="GoToProduct(product.id)"  class="btn btn-sm btn-dark">عرض</a><br>
+                    </div>
+                    <a (click)="GoToProduct(product.id)"  class="btn btn-sm defcolor">عرض</a><br>
                 </div>
                 <br>
-                <br>
-                <hr>
             </div>
             <br><br>
         </div>
