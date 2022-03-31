@@ -24,6 +24,7 @@ clicked=0;
       },
       error => this.errmsg = error
     );
+    window.scrollTo(80,80);
   }
   GetOneCategory(id: number) {
     this.router.navigate(['category', id]);
@@ -40,5 +41,6 @@ clicked=0;
    if(value!="")
     this.router.navigate(['search', value]);
     else alert("الرجاء إدخال قيمة للبحث")
+    window.scrollTo(80,80);
   }
 }

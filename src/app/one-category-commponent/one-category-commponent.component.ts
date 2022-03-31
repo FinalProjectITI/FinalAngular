@@ -29,10 +29,12 @@ errormsg:string=""
       error=>{this.errormsg=this.errormsg}
     );
     });
+    window.scrollTo(80,80);
     }
 
     GoToProduct(id:number){
       this.router.navigate(['product',id]);
+      window.scrollTo(80,80);
     }
 
 }
