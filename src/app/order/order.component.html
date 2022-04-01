@@ -1,0 +1,17 @@
+<br><br>
+<section class="page-section  text-center">
+    <div class="container">
+        <h2>طلباتك</h2>
+    </div>
+    <div *ngIf="logged else fault">
+        here we go again
+    </div>
+    <ng-template #fault>
+        <div>
+            <br>
+            <h2> قم بالتسجيل اولا ثما اختار منتاجاتك </h2>
+            <br>
+            <br>
+        </div>
+    </ng-template>
+</section>

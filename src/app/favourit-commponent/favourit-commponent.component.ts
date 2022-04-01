@@ -9,6 +9,8 @@ export class FavouritCommponentComponent implements OnInit {
 
   constructor() { }
 
+  logged:boolean=false;
+  
   ngOnInit(): void {
   }
 

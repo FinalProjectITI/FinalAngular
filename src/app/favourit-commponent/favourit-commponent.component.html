@@ -1,1 +1,17 @@
-<p>favourit-commponent works!</p>
+<br><br>
+<section class="page-section  text-center">
+    <div class="container">
+        <h2>المفضلة</h2>
+        
+    </div>
+    <div *ngIf="logged else fault">
+    </div>
+    <ng-template #fault>
+        <br>
+        <h2> انت لم تسجل بعد</h2>
+        <br>
+        <br>
+    </ng-template>
+
+
+</section>

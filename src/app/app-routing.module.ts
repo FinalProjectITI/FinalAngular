@@ -1,3 +1,4 @@
+import { OrderComponent } from './order/order.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartCommponentComponent } from './cart-commponent/cart-commponent.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'category/:id',component:OneCategoryCommponentComponent},
   {path:'product',component:OneProductCommponentComponent},
   {path:'register',component:RegisterComponent},
+  {path:'order',component:OrderComponent},
   {path:'**',component:NotFoundPageComponent},
  
 ];
