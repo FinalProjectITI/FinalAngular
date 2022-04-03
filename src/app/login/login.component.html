@@ -6,24 +6,35 @@
         <div class="card-header defcolor text-white text-center shadow">
             تسجيل الدخول
         </div>
-        <form class="container card shadow">
+        <form class="container card shadow" [formGroup]="LoginForm" (ngSubmit)="Login()">
             <br>
             <!--Username-->
             <div class="form-group">
-                <label for="username">اسم المستخدم</label>
-                <input type="text" id="username" name="txtUsername" #username required class="form-control">
+                <label for="email">البريد الالكتروني</label>
+                <input type="email" [class.is-invalid]="Email?.invalid && Email?.touched" id="Email" name="Email" formControlName="Email" class="form-control">
+                <div *ngIf="Email?.errors">
+                    <small class="text-danger" *ngIf="Email?.errors?.['required']">Required email</small>
+                    <small class="text-danger"*ngIf="Email?.errors?.['pattern']">*must contain . and @</small>
+                </div>
             </div>
 
             <!--Password-->
             <div class="form-group">
-                <label for="password">كلمة المرور</label>
-                <input type="password" id="password" name="txtPassword" #password required class="form-control">
+                <label for="password">كلمة السر</label>
+                <input type="password" [class.is-invalid]="Password?.invalid && Password?.touched" formControlName="Password" id="password" name="txtPassword" class="form-control">
+                <div *ngIf="Password?.errors">
+                    <small class="text-danger" *ngIf="Password?.errors?.['required']">Password required</small>
+                    <small class="text-danger" *ngIf="Password?.errors?.['pattern']">Password inncoreect </small>
+                </div>
             </div>
 
             <!--Login-->
             <br>
             <div class="d-grid gap-2">
-                <button (click)="doLogin(username.value,password.value)" class="btn btn-sm defcolor text-white" type="submit">دخول</button>
+            <!--     <button (click)="doLogin(username.value,password.value)" class="btn btn-sm defcolor text-white" type="submit">دخول</button>
+             -->
+             <button type="submit" class="btn defcolor  btn-sm" [disabled]="LoginForm?.invalid">تسجيل</button>
+            
             </div>
             <br>
             <small class="text-danger container text-center" *ngIf="!loginSuccess">المستخدم غير موجود</small>

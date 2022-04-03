@@ -2,10 +2,9 @@
     <br>
     <div class="container col-4">
         <div class="card-header defcolor text-center text-white shadow">
-            تسجيل مستخدم
+            أنشاء حساب جديد
         </div>
-        <form class="container card border-success border-2 shadow" #userForm="ngForm" novalidate
-            [class.border-danger]="userForm.form.invalid">
+        <form class="container card border-defcolor  border-2 shadow" [formGroup]="RegisterForm" >
             <br>
             <!--Name-->
             <!-- <div class="form-group">
@@ -18,76 +17,64 @@
             <!--Username-->
             <div class="form-group">
                 <label for="username">اسم المستخدم</label>
-                <input type="text" pattern="^[A-Za-z_]{6,}$" [class.is-invalid]="username.invalid && username.touched"
-                    [class.is-valid]="username.valid" [(ngModel)]="newUser.Username" id="username" name="txtUsername"
-                    #username="ngModel" required class="form-control">
-                <small class="text-danger" *ngIf="username.value == '' && username.touched ">*required</small>
-                <small class="text-danger"
-                    *ngIf="username.invalid && username.touched && username.dirty && username.value != ''">*must contain
-                    min 6 capital and small chars only
-                </small>
+                <input type="text"  [class.is-invalid]="UserName?.invalid && UserName?.touched" formControlName="UserName" id="username" name="UserName" class="form-control">
+                <div *ngIf="UserName?.errors">
+                    <small class="text-danger" *ngIf="UserName?.errors?.['required']">User Name Required</small>
+                    <small class="text-danger"
+                        *ngIf="UserName?.errors?.['pattern']">*must contain min 6 capital and small chars only
+                    </small>
+                </div>
             </div>
 
             <!--Email-->
             <div class="form-group">
                 <label for="email">البريد الالكتروني</label>
-                <input type="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{3}$"
-                    [class.is-invalid]="email.invalid && email.touched" [class.is-valid]="email.valid"
-                    [(ngModel)]="newUser.Email" id="email" name="txtEmail" #email="ngModel" required
-                    class="form-control">
-                <small class="text-danger" *ngIf="email.value == '' && email.touched ">*required</small>
-                <small class="text-danger"
-                    *ngIf="email.invalid && email.touched && email.dirty && email.value != ''">*must contain . and
-                    @</small>
+                <input type="email" [class.is-invalid]="Email?.invalid && Email?.touched" id="Email" name="Email" formControlName="Email" class="form-control">
+                <div *ngIf="Email?.errors">
+                    <small class="text-danger" *ngIf="Email?.errors?.['required']">Required email</small>
+                    <small class="text-danger"*ngIf="Email?.errors?.['pattern']">*must contain . and @</small>
+                </div>
             </div>
 
             <!--Password-->
             <div class="form-group">
                 <label for="password">كلمة السر</label>
-                <input type="password" pattern="^[A-Za-z0-9_@]{6,}$"
-                    [class.is-invalid]="password.invalid && password.touched" [class.is-valid]="password.valid"
-                    [(ngModel)]="newUser.Password" id="password" name="txtPassword" #password="ngModel" required
-                    class="form-control">
-                <small class="text-danger" *ngIf="password.value == '' && password.touched ">*required</small>
-                <small class="text-danger"
-                    *ngIf="password.invalid && password.touched && password.dirty && password.value != ''">*must contain
-                    6 chars at least
-                </small>
+                <input type="password" [class.is-invalid]="Password?.invalid && Password?.touched" formControlName="Password" id="password" name="txtPassword" class="form-control">
+                <div *ngIf="Password?.errors">
+                    <small class="text-danger" *ngIf="Password?.errors?.['required']">Password required</small>
+                    <small class="text-danger" *ngIf="Password?.errors?.['pattern']">Password must contain 6 chars at least </small>
+                    
+                </div>
             </div>
 
             <!--Confirm Password-->
             <div class="form-group">
                 <label for="conPassword">تأكيد كلمة السر</label>
-                <input type="password" pattern="{{password.value}}"
-                    [class.is-invalid]="conPassword.invalid && conPassword.touched" [class.is-valid]="conPassword.valid"
-                    [(ngModel)]="newUser.ConfirmPassword" id="conPassword" name="txtConfirmPassword"
-                    #conPassword="ngModel" required class="form-control">
-                <small class="text-danger" *ngIf="conPassword.value == '' && conPassword.touched ">*required</small>
-                <small class="text-danger"
-                    *ngIf="conPassword.invalid && conPassword.touched && conPassword.dirty && conPassword.value != ''">*must
-                    be matched with password
-                </small>
-            </div>
+                <input type="password" formControlName="ConfirmPassword" [class.is-invalid]="ConfirmPassword?.invalid && ConfirmPassword?.touched" id="conPassword" name="txtConfirmPassword" class="form-control">
+                <div *ngIf="RegisterForm?.errors">
+                    <small class="text-danger" *ngIf="ConfirmPassword?.errors?.['required']">Required &</small>
+                    <small class="text-danger" *ngIf="RegisterForm?.errors?.['Miss_match']">Conirm Password Not match Password </small>
+                </div>
+
 
             <!--Address-->
             <div class="form-group">
-                <label for="about">العنوان</label>
-                <select id="about" [class.is-invalid]="about.invalid && about.touched"
-                    [class.is-valid]="about.valid && about.touched" [(ngModel)]="newUser.About" name="ddlAbout"
-                    #about="ngModel" required class="form-select">
+                <label for="about">كيف سمعت عنا</label>
+            </div>
+                <select id="about" [class.is-invalid]="About?.invalid && About?.touched"name="ddlAbout" formControlName="About" class="form-select">
                     <option value="">أختر</option>
                     <option value="1" *ngFor="let source of sources">{{source}}</option>
                 </select>
-                <small class="text-danger" *ngIf="about.value == '' && about.touched && about.pristine">*required</small>
-                <small class="text-danger" *ngIf="about.invalid && about.dirty">*must select option</small>
+                <small class="text-danger" *ngIf="About?.errors?.['required']">*required</small>
             </div>
 
             <!--Register-->
             <br>
             <div class="d-grid gap-2">
-                <button (click)="doRegist(email.value,about.value,username.value,password.value,conPassword.value)"
+                <!-- <button (click)="doRegist(email.value,about.value,username.value,password.value,conPassword.value)"
                     class="btn btn-sm defcolor text-white" type="submit"
-                    [disabled]="userForm.form.invalid">تسجيل</button>
+                    [disabled]="userForm.form.invalid">تسجيل</button> -->
+                <button type="submit" class="btn defcolor  btn-sm" [disabled]="RegisterForm?.invalid">تسجيل</button>
             </div>
             <br>
         </form>
