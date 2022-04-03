@@ -18,7 +18,6 @@ export class OneProductCommponentComponent implements OnInit {
   SimilarProducts: Array<IProduct> = [];
   errormsg: string = "";
 
-
   constructor(private route: ActivatedRoute, private router: Router, private oneProduct: OneProductService, private semiProducts: SimilarProductService) { }
 
   ngOnInit(): void {
