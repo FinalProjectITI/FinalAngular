@@ -1,4 +1,4 @@
-export interface IProduct{
+export interface IOneProduct{
     id:number,
     name:string,
     price:number,
@@ -8,5 +8,8 @@ export interface IProduct{
     category:string,
     type:string,
     season:string,
-    firstImage:string
+    firstImage:string,
+    images:string[],
+    categoryID:number,
+    typeID:number
 }

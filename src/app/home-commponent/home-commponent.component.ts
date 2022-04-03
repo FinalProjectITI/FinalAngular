@@ -19,10 +19,12 @@ export class HomeCommponentComponent implements OnInit {
         this.Products=data ;},
       error=>{this.errormsg=this.errormsg}
     );
+    window.scrollTo(0,0);
   }
 
   GoToProduct(id:number){
     this.router.navigate(['product',id]);
+    window.scrollTo(80,80);
   }
 
 }

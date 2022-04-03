@@ -1,4 +1,11 @@
-
+<div class="container-fluid" style="height: 445px; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+url(https://qph.fs.quoracdn.net/main-qimg-4c44db1c7ae3e9326f190687ad77f529); background-size: cover;">
+<br><br><br><br><br>
+<div class="container text-center text-white shadow-lg"><br>
+    <h1 class="font-weight-bolder">مرحبا بكم في مصنع الاصلي</h1>
+    <h2>للملابس الجاهزة</h2><br>
+</div>
+</div>
 <br>
 <!-- Category -->
 <!-- <section class="page-section bg-muted text-dark">
@@ -36,20 +43,24 @@
 <section class="page-section bg-muted text-white">
     <div class="container text-center">
 
-        <div class="row text-dark shadow-lg bg-white" style="padding: 30px;">
+        <div class="row text-dark shadow-lg bg-white rounded" style="padding: 30px;">
             <h3 class="text-dark">موديلات جديدة</h3><br><br>
             <hr class="bg-danger"><br>
-            <div *ngFor="let product of Products" class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+            <div *ngFor="let product of Products" class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card container shadow"><br>
-                    <div class="brand-box bg-light">
-                        <span class="badge bg-danger text-white" style="position: absolute;">{{product.discount}} %</span>
-                        <i><img src={{product.firstImage}}
-                                style="height: 200px;">
-                        </i><br><br>
-                        <h6>السعر $<span>{{product.price}}</span></h6>
-                    </div><br>
-                    <a (click)="GoToProduct(product.id)" class="btn btn-sm btn-dark">عرض</a><br>
-                </div>
+                    <h5>{{product.name}}</h5>
+                    <div class="brand-box">
+                        
+                        <div *ngIf="product.discount > 0" class="badge bg-danger text-white"
+                            style="position: absolute;">{{product.discount}} %</div>
+                        <i><img class="col-xl-10 col-lg-12 col-md-10 col-sm-12" src={{product.firstImage}} style="height: 180px;">
+                        </i><br>
+                        <i class="fa-duotone fa-heart"></i>
+                        <h6>السعر LE<span>{{product.price}}</span></h6>
+                        <!-- <i class="fa-solid fa-heart"></i> -->
+                    </div>
+                    <a (click)="GoToProduct(product.id)" class="btn btn-sm defcolor">عرض</a><br>
+                </div><br>
             </div>
             <br><br>
         </div>
@@ -77,7 +88,7 @@
                             <h5>
                                 سرعة الشحن
                             </h5>
-                            
+
                         </div>
                     </div>
                 </div>
