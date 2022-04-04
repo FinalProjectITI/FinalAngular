@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+//import { Interface } from 'readline';
 import { catchError, Observable, throwError } from 'rxjs';
 import { IProduct } from '../Shared Classes/IProduct';
 
@@ -7,12 +8,28 @@ import { IProduct } from '../Shared Classes/IProduct';
   providedIn: 'root',
 })
 export class AllProductsService {
-  constructor(private http: HttpClient) {}
+  BaseUrel: string = "http://localhost:18352/api/";
+  constructor(private http: HttpClient) { }
   GetAllProducts(start: number, categoryid: number): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(
-      'http://localhost:18352/api/Products/GetProducts/' + start + '/' + categoryid
-    ).pipe(catchError((err)=>{
-      return throwError(()=>err.msg||"server Error")
+      this.BaseUrel + 'Products/GetProducts/' + (start*12) + '/' + categoryid
+    ).pipe(catchError((err) => {
+      return throwError(() => err.msg || "server Error")
     }));
   }
+
+  GetProductsCount(categoryId:number):Observable<ProductsInCategory>{
+ return this.http.get( this.BaseUrel + 'Products/GetCount/'+categoryId)
+ .pipe(catchError((err) => {
+  return throwError(() => err.msg || "server Error")
+}));
+  }
+}
+
+
+ export class ProductsInCategory{
+
+  Prodcount?:number
+  
+
 }
