@@ -18,7 +18,6 @@ export class OneProductCommponentComponent implements OnInit {
   SimilarProducts: Array<IProduct> = [];
   errormsg: string = "";
 
-
   constructor(private route: ActivatedRoute, private router: Router, private oneProduct: OneProductService, private semiProducts: SimilarProductService) { }
 
   ngOnInit(): void {
@@ -32,22 +31,21 @@ export class OneProductCommponentComponent implements OnInit {
         error => { this.errormsg = error }
       )
     });
-    
+
   }
 
 
-  ShowSimilar()
-  {
-    this.route.paramMap.subscribe((params: ParamMap)=>{
-      this.semiProducts.GetSimilarProducts(this.Products[0].typeID,this.Products[0].categoryID,this.Products[0].id).subscribe(
-        data=>{
+  ShowSimilar() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.semiProducts.GetSimilarProducts(this.Products[0].typeID, this.Products[0].categoryID, this.Products[0].id).subscribe(
+        data => {
           this.SimilarProducts = data;
         },
         error => { this.errormsg = error }
       )
     })
   }
-  
+
   GoToProduct(id: number) {
     this.Products = [];
     this.router.navigate(['product', id]);

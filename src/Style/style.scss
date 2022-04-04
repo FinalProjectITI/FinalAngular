@@ -774,6 +774,18 @@ a:focus {
   }
 }
 
+.curs{
+  cursor: pointer;
+}
+
+.curs:hover{
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.29);
+}
+
+.defform{
+  background-color: #3a4468;
+  color: white;
+}
 .defcolor{
   border-color: #3a4468;
   color: #3a4468;

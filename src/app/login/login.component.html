@@ -3,7 +3,7 @@
     <h2 class="text-center">مصنع الأصلي للملابس</h2>
     <br><br>
     <div class="container col-4">
-        <div class="card-header defcolor text-white text-center shadow">
+        <div class="card-header defform text-white text-center shadow">
             تسجيل الدخول
         </div>
         <form class="container card shadow">
@@ -23,7 +23,7 @@
             <!--Login-->
             <br>
             <div class="d-grid gap-2">
-                <button (click)="doLogin(username.value,password.value)" class="btn btn-sm defcolor text-white" type="submit">دخول</button>
+                <button (click)="doLogin(username.value,password.value)" class="btn btn-sm defcolor" type="submit">دخول</button>
             </div>
             <br>
             <small class="text-danger container text-center" *ngIf="!loginSuccess">المستخدم غير موجود</small>
