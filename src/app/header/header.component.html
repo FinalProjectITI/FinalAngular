@@ -36,7 +36,7 @@
   </div>
   <div class="header_bottom">
     <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg custom_nav-container">
+      <nav class="navbar navbar-expand-lg navbar-toggleable-lg custom_nav-container">
         <a class="navbar-brand" routerLink="">
           <span> الأصلى </span>
         </a>
@@ -53,8 +53,8 @@
           <span class=""> </span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav ">
             <!-- <li >#i0 [class.active]="i0.id==isactive" id="0"  > -->
             <li
             (click)="goToHome()"
@@ -93,6 +93,17 @@
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <span> المشتريات </span>
             </a>
+
+            <a routerLink="/favourit" class="cart-link">
+              <span> المفضلة </span>
+              <i class="fas fa-heart"></i>
+            </a>
+
+            <a routerLink="/order" class="cart-link">
+              <span> طلباتك </span>
+              <i class="fas fa-shopping-bag"></i>
+            </a>
+
           </div>
         </div>
       </nav>

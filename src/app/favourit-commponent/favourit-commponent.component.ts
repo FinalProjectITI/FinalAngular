@@ -1,3 +1,6 @@
+import { favouriteService } from './../services/favoutite.service';
+import { Router } from '@angular/router';
+import { IProduct } from './../Shared Classes/IProduct';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavouritCommponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,FavService:favouriteService) { 
+    FavService.GetAllFavourites().subscribe(
+      data=>{this.favoutites=data
+        this.logged=true
+      },
+      error=>{this.error=error
+      this.logged=false
+      console.log(error)
+      }
+    )
+  }
 
+  logged:boolean=true;
+  favoutites:IProduct[]=[]
+  error:string=""
   ngOnInit(): void {
   }
 
+  GoToProduct(id:number){
+    this.router.navigate(['product',id]);
+    window.scrollTo(80,80);
+  }
 }

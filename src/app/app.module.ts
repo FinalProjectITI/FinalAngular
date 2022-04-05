@@ -15,7 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{ HttpClientModule} from '@angular/common/http';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { RegisterComponent } from './register/register.component';
+
 import { SearchCommponentComponent } from './search-commponent/search-commponent.component';
+import { OrderProductComponent } from './order-product/order-product.component';
+
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { SearchCommponentComponent } from './search-commponent/search-commponent
     FavouritCommponentComponent,
     NotFoundPageComponent,
     RegisterComponent,
-    SearchCommponentComponent
+    OrderProductComponent,
+
   ],
   imports: [
     BrowserModule,

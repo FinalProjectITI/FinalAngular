@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoginService } from './../services/AuthentactionService';
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
+//import { LoginService } from '../services/login.service';
 import { userReg } from '../Shared Classes/IuseeReg';
 
 
@@ -14,36 +15,59 @@ import { userReg } from '../Shared Classes/IuseeReg';
 export class RegisterComponent implements OnInit {
 
   sources = ['Linkedin', 'Wuzzef', 'Facebook']
-  //newUser = new Register('', '', '', '', '');
-  newUser = {
-    Username:"",
-    Email:"",
-    Password:"",
-    ConfirmPassword:"",
-    About:""
+  constructor(private router:Router,private FB:FormBuilder,private loginServes:LoginService ) { }
+  
+  RegisterForm=this.FB.group({
+    UserName:["",[Validators.required,Validators.pattern("^[A-Za-z_]{6,}$")]],
+    Email:["",[Validators.required,Validators.email,Validators.pattern("[a-z0-9]+@[a-z]+\.[a-z]{2,3}")]],
+    Password:["",[Validators.required,Validators.pattern("")]],
+    ConfirmPassword:["",[Validators.required,Validators.pattern("")]],
+    About:["",Validators.required]
+  },{validator:[validateConfirmPassword]})
+  get UserName(){
+      return this.RegisterForm.get("UserName")
+  }
+  get Email(){
+    return this.RegisterForm.get("Email")
   }
 
-  map = new Map<string, string>();
+  get Password(){
+    return this.RegisterForm.get("Password")
+  }
 
-  constructor(private http: HttpClient,private router:Router,private Logserv: LoginService) { }
-    
+  get ConfirmPassword(){
+    return this.RegisterForm.get("ConfirmPassword")
+  }
+  get About(){
+    return this.RegisterForm.get("About")
+  }
+
   ngOnInit(): void {
    
   }
-
-  doRegist(newEmail: string, newAbout: string, newUsername: string, newPass: string, newConPass: string) {
-    this.map.set("email", newEmail);
-    this.map.set("about", newAbout);
-    this.map.set("username", newUsername);
-    this.map.set("password", newPass);
-    this.map.set("confirmPassword", newConPass);
-    console.log(this.map.get("username"));
-    let newuser = this.map.get("username");
-    console.log(this.map.get("password"));
-    let newpass = this.map.get("password");
-    this.Logserv.register(newUsername,newEmail,newpass!)
-    // this.registService.setRegistData(newUsername,newPass);
-    this.router.navigate(['/login']);
+  response:any=""
+  Register(){
+    console.log("asd");
+    this.loginServes.register(this.UserName?.value,this.Email?.value,this.Password?.value).subscribe(data=>{
+      console.log(data),
+      this.login()
+    },
+    err=>console.log(err.error.message)
+    );
+     console.log(this.response);
   }
-
+  login ()
+{
+  console.log("asd");
+    this.loginServes.login(this.UserName?.value,this.Password?.value).subscribe(data=>console.log(data.token),error=>{
+      console.log("dsfcsd"+error)
+    });
+  console.log(this.response);
+}
+}
+export function validateConfirmPassword(control:AbstractControl){
+  const Password=control.get("Password")
+  const ConfirmPassword=control.get("ConfirmPassword")
+  console.log("In confirmed Password"+Password?.value)
+  return Password&&ConfirmPassword&&Password.value != ConfirmPassword.value?{"Miss_match":true}:null;
 }

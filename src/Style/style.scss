@@ -774,6 +774,19 @@ a:focus {
   }
 }
 
+//<<<<<<< HEAD
+/* .defcolor{
+=======
+
+.defform{
+  background-color: #3a4468;
+  color: white;
+}
+.defcolor{
+  ///>>>>>>> 5e770d377f86fbd8c7260ed120df27fc5db50d15
+  border-color: #3a4468;
+  color: #3a4468;
+} */
 .curs{
   cursor: pointer;
 }
@@ -781,17 +794,9 @@ a:focus {
 .curs:hover{
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.29);
 }
-
-.defform{
-  background-color: #3a4468;
-  color: white;
-}
 .defcolor{
-  border-color: #3a4468;
-  color: #3a4468;
-}
-.defcolor:hover{
   color: white;
   background-color: #3a4468;
 }
+
 // end footer section
