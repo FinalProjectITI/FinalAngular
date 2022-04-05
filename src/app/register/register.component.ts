@@ -58,11 +58,12 @@ export class RegisterComponent implements OnInit {
   }
   login ()
 {
-  console.log("asd");
-    this.loginServes.login(this.UserName?.value,this.Password?.value).subscribe(data=>console.log(data.token),error=>{
+    this.loginServes.login(this.UserName?.value,this.Password?.value).subscribe(data=>{
+      localStorage.setItem('Alasly-Token',data.token);
+      localStorage.setItem('Alasly-UserName',this.UserName?.value);
+    },error=>{
       console.log("dsfcsd"+error)
     });
-  console.log(this.response);
 }
 }
 export function validateConfirmPassword(control:AbstractControl){
