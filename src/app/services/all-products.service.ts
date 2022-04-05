@@ -28,8 +28,5 @@ export class AllProductsService {
 
 
  export class ProductsInCategory{
-
   Prodcount?:number
-  
-
 }

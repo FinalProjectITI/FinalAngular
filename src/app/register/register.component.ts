@@ -2,12 +2,16 @@ import { LoginService } from './../services/AuthentactionService';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+//import { LoginService } from '../services/login.service';
+import { userReg } from '../Shared Classes/IuseeReg';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
 
   sources = ['Linkedin', 'Wuzzef', 'Facebook']
@@ -39,6 +43,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
   }
   response:any=""
   Register(){
