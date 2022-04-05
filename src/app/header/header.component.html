@@ -19,18 +19,37 @@
           </button>
         </form>
 
-        <div class="user_option_box">
-          <a routerLink="/login" class="account-link">
-            <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+        <div *ngIf="isLogin; then thenBlocked; eles elseBlocked">
 
-            <span> تسجيل الدخول </span>
-          </a>
-          <a routerLink="/register" class="cart-link">
-            <i class="fas fa-user-circle" aria-hidden="true"></i>
-
-            <span> إنشاء حساب </span>
-          </a>
         </div>
+        <ng-template #thenBlocked>
+          <div class="user_option_box">
+            <a routerLink="/login" class="account-link">
+              <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+  
+              <span> تسجيل الدخول </span>
+            </a>
+            <a routerLink="/register" class="cart-link">
+              <i class="fas fa-user-circle" aria-hidden="true"></i>
+  
+              <span> تسجيل الخروج </span>
+            </a>
+          </div>
+        </ng-template>
+
+        <ng-template #elseBlocked>
+          <div class="user_option_box">
+              <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+              <span>{{userName}} </span>
+            
+            <a routerLink="/register" class="cart-link">
+              <i class="fas fa-user-circle" aria-hidden="true"></i>
+  
+              <span> إنشاء حساب </span>
+            </a>
+          </div>
+        </ng-template>
+
       </div>
     </div>
   </div>

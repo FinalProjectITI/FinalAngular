@@ -1,3 +1,4 @@
+import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryService } from '../services/category.service';
@@ -15,7 +16,8 @@ classActive="nav-item active";
 isactive:string='0';
 clicked=0;
   constructor(private categorysevice: CategoryService, private router: Router) { }
-
+  isLogin:boolean =false;
+  userName:string="";
   ngOnInit(): void {
     this.categorysevice.GetAllCategories().subscribe(
       data => {
@@ -25,6 +27,11 @@ clicked=0;
       error => this.errmsg = error
     );
     window.scrollTo(0,0);
+    if(localStorage.getItem('Alasly-Token')!=null)
+    {
+      this.isLogin=true;
+      this.userName=String(localStorage.getItem('Alasly-UserName'));
+    }
   }
   GetOneCategory(id: number) {
     this.router.navigate(['category', id]);
