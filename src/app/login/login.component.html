@@ -3,15 +3,15 @@
     <h2 class="text-center">مصنع الأصلي للملابس</h2>
     <br><br>
     <div class="container col-4">
-        <div class="card-header defcolor text-white text-center shadow">
+        <div class="card-header defform text-white text-center shadow">
             تسجيل الدخول
         </div>
         <form class="container card shadow" [formGroup]="LoginForm" (ngSubmit)="Login()">
             <br>
             <!--Username-->
             <div class="form-group">
-                <label for="email">البريد الالكتروني</label>
-                <input type="email" [class.is-invalid]="Email?.invalid && Email?.touched" id="Email" name="Email" formControlName="Email" class="form-control">
+                <label for="email">اسم المستخدم </label>
+                <input type="text" [class.is-invalid]="Email?.invalid && Email?.touched" id="Email" name="Email" formControlName="Email" class="form-control">
                 <div *ngIf="Email?.errors">
                     <small class="text-danger" *ngIf="Email?.errors?.['required']">Required email</small>
                     <small class="text-danger"*ngIf="Email?.errors?.['pattern']">*must contain . and @</small>
@@ -31,10 +31,7 @@
             <!--Login-->
             <br>
             <div class="d-grid gap-2">
-            <!--     <button (click)="doLogin(username.value,password.value)" class="btn btn-sm defcolor text-white" type="submit">دخول</button>
-             -->
              <button type="submit" class="btn defcolor  btn-sm" [disabled]="LoginForm?.invalid">تسجيل</button>
-            
             </div>
             <br>
             <small class="text-danger container text-center" *ngIf="!loginSuccess">المستخدم غير موجود</small>

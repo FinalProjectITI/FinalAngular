@@ -1,4 +1,5 @@
-import { OrderComponent } from './order/order.component';
+import { OrderProductComponent } from './order-product/order-product.component';
+//import { OrderComponent } from './order/order.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartCommponentComponent } from './cart-commponent/cart-commponent.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path:'product/:id',component:OneProductCommponentComponent},
   {path:'search/:value',component:SearchCommponentComponent},
   {path:'register',component:RegisterComponent},
-  {path:'order',component:OrderComponent},
+  {path:'order',component:OrderProductComponent},
   {path:'**',component:NotFoundPageComponent},
  
 ];

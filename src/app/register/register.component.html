@@ -2,9 +2,8 @@
     <br>
     <div class="container col-4">
         <div class="card-header defcolor text-center text-white shadow">
-            أنشاء حساب جديد
         </div>
-        <form class="container card border-defcolor  border-2 shadow" [formGroup]="RegisterForm" >
+        <form class="container card border-defcolor  border-2 shadow" [formGroup]="RegisterForm" (ngSubmit)="Register()">
             <br>
             <!--Name-->
             <!-- <div class="form-group">
@@ -80,4 +79,3 @@
         </form>
     </div>
     <br><br><br>
-</main>

@@ -9,14 +9,18 @@ import { IProduct } from '../Shared Classes/IProduct';
   styleUrls: ['./home-commponent.component.scss']
 })
 export class HomeCommponentComponent implements OnInit {
-  Products:IProduct[]=[]
+  Products:IProduct[]=[];
+  discountProducts:IProduct[]=[];
+  normalProducts:IProduct[]=[];
   errormsg:string=""
   constructor(private inHomeProdService:ProductsInHomeService,private router:Router) { }
 
   ngOnInit(): void {
     this.inHomeProdService.GetAllProducts().subscribe(
       data=>{
-        this.Products=data ;},
+        this.Products=data;
+        this.filterProducts();
+      },
       error=>{this.errormsg=this.errormsg}
     );
     window.scrollTo(0,0);
@@ -25,6 +29,16 @@ export class HomeCommponentComponent implements OnInit {
   GoToProduct(id:number){
     this.router.navigate(['product',id]);
     window.scrollTo(80,80);
+  }
+
+  filterProducts(){
+    this.Products.forEach(element => {
+      if(element.discount > 0){
+        this.discountProducts.push(element);
+      }else{
+        this.normalProducts.push(element);
+      }
+    });
   }
 
 }
