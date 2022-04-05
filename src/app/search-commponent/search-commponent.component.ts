@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
-import { CategoryService } from '../services/category.service';
 import { SearchService } from '../services/search.service';
 import { IProduct } from '../Shared Classes/IProduct';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-search-commponent',
   templateUrl: './search-commponent.component.html',
