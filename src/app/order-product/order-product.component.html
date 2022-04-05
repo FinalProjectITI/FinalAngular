@@ -22,14 +22,15 @@
                             <td>{{order.address}}</td>
                             <td>{{order.totalPrice}}</td>
 
-                            <td *ngIf="order.status==0">
-                                <button class="btn btn-dnger"></button>
+                            <td *ngIf="order.status==0">  
+                                <button class="btn text-danger btn-link" style="text-decoration: none;"><i class="fas fa-window-close"></i> الغاء الطلب </button>
                             </td>
-                            <td *ngIf="order.status==1">
-                                <button class="btn btn-danger">الغاءالطلب</button>
+                            <td *ngIf="order.status==1" >
+                                <p>ف الطريق  <i class="fas fa-truck text-success"></i></p>
+                               
                             </td>
-                            <td *ngIf="order.status==2">تم الاستلام بنجاح</td>
-                            <td *ngIf="order.status==3">تم الغاء الطلب</td>
+                            <td *ngIf="order.status==2" class="text-success">تم التوصيل<i class="far fa-check-circle"></i></td>
+                            <td *ngIf="order.status==3" class="text-danger">تم الالغاء</td>
                         </tr>
                         
                         
