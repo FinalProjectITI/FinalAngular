@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
     Login ()
     {
       console.log("asd");
-        this.loginserves.login(this.Email?.value,this.Password?.value).subscribe(data=>{console.log(data.token),this.logge=true},
+        this.loginserves.login(this.Email?.value,this.Password?.value).subscribe(data=>{
+         localStorage.setItem('Alasly-Token',data.token);
+         localStorage.setItem('Alasly-UserName',this.Email?.value),this.logge=true},
         error=>{
           console.log("dsfcsd"+error)
         });
