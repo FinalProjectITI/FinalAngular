@@ -2,12 +2,16 @@ import { LoginService } from './../services/AuthentactionService';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+//import { LoginService } from '../services/login.service';
+import { userReg } from '../Shared Classes/IuseeReg';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
 
   sources = ['Linkedin', 'Wuzzef', 'Facebook']
@@ -39,6 +43,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
   }
   response:any=""
   Register(){
@@ -53,11 +58,12 @@ export class RegisterComponent implements OnInit {
   }
   login ()
 {
-  console.log("asd");
-    this.loginServes.login(this.UserName?.value,this.Password?.value).subscribe(data=>console.log(data.token),error=>{
+    this.loginServes.login(this.UserName?.value,this.Password?.value).subscribe(data=>{
+      localStorage.setItem('Alasly-Token',data.token);
+      localStorage.setItem('Alasly-UserName',this.UserName?.value);
+    },error=>{
       console.log("dsfcsd"+error)
     });
-  console.log(this.response);
 }
 }
 export function validateConfirmPassword(control:AbstractControl){

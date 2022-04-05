@@ -37,9 +37,12 @@ clicked=0;
     //this.router.navigate(['home'])
   }
   GoToSearch(value:string){
-    console.log(value)
-   if(value!="")
+    
+   if(value!=""){
+    CategoryService.routTest=value
     this.router.navigate(['search', value]);
+    //console.log(value)
+   }
     else alert("الرجاء إدخال قيمة للبحث")
     window.scrollTo(80,80);
   }

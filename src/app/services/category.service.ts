@@ -9,7 +9,7 @@ import { ICategory } from '../Shared Classes/ICategory';
 export class CategoryService {
 
   
- 
+ static routTest="" 
   constructor(private http: HttpClient) { }
   
   GetAllCategories(): Observable<ICategory[]> {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+//import { BrowserModule } from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,11 +18,14 @@ import { RegisterComponent } from './register/register.component';
 
 import { SearchCommponentComponent } from './search-commponent/search-commponent.component';
 import { OrderProductComponent } from './order-product/order-product.component';
+import { CommonModule } from '@angular/common';
+
 
 
 
 @NgModule({
   declarations: [
+   
     AppComponent,
     LoginComponent,
     HeaderComponent,
@@ -35,6 +38,7 @@ import { OrderProductComponent } from './order-product/order-product.component';
     NotFoundPageComponent,
     RegisterComponent,
     OrderProductComponent,
+    SearchCommponentComponent,
 
   ],
   imports: [
@@ -42,8 +46,8 @@ import { OrderProductComponent } from './order-product/order-product.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
-  
+    ReactiveFormsModule,
+    CommonModule 
     
   ],
   providers: [],
