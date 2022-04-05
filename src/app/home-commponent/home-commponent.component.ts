@@ -28,7 +28,7 @@ export class HomeCommponentComponent implements OnInit {
 
   GoToProduct(id:number){
     this.router.navigate(['product',id]);
-    window.scrollTo(80,80);
+    window.scrollTo(0,0);
   }
 
   filterProducts(){
