@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class OrderProductComponent implements OnInit {
 
   constructor(private orderservice:orderService) {
-    this.orderservice.GetAllOrders().subscribe(
+    this.orderservice.GetAllOrders(this.access).subscribe(
       data=>
       {
         data
@@ -22,6 +22,7 @@ export class OrderProductComponent implements OnInit {
     )
     console.log(this.Orders)
    }
+  access:string=String(localStorage.getItem("Alasly-Token"))
   logged:boolean=false;
   Orders:IOrder[]=[];
   error:string="";
