@@ -787,6 +787,11 @@ a:focus {
   border-color: #3a4468;
   color: #3a4468;
 } */
+
+.defform{
+  background-color: #3a4468;
+  color: white;
+}
 .curs{
   cursor: pointer;
 }
@@ -795,8 +800,24 @@ a:focus {
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.29);
 }
 .defcolor{
+  border-color: #3a4468;
+  color: #3a4468;
+}
+.defcolor:hover{
   color: white;
   background-color: #3a4468;
+}
+.btn-fav{
+  color: white;
+  background-color: lightgray;
+}
+.add{
+  border-color: #3a4468;
+  background-color: white;
+  color: #3a4468;
+}
+.fav-icon{
+  font-size: x-large;
 }
 
 // end footer section

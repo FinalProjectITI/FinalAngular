@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   LoginForm=this.FB.group({
     Email:["",[Validators.required,Validators.pattern("^[A-Za-z_]{6,}$")]],
-    Password:["",[Validators.required,Validators.pattern("")]]
+    Password:["",[Validators.required,Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}")]]
   })
   get Email(){
     return this.LoginForm.get("Email")
@@ -26,16 +26,7 @@ export class LoginComponent implements OnInit {
   
   ngOnInit(): void {
   }
-  /* Login():boolean{
-    if(this.Email?.value=="bbeshoymikhail@gmail.com"&&this.Password?.value=="2339242")
-    {
-      this.LoginForm.patchValue({
-        Email:"",
-        Password:""
-      })
-      this.loginSuccess=true;
-      this.router.navigateByUrl('/home')
-    } */
+ 
     response:any
     logge:boolean=false
     Login ()

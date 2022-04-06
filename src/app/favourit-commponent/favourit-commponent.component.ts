@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class FavouritCommponentComponent implements OnInit {
 
   constructor(private router:Router,FavService:favouriteService) { 
-    FavService.GetAllFavourites().subscribe(
+    FavService.GetAllFavourites(this.access).subscribe(
       data=>{this.favoutites=data
         this.logged=true
       },
@@ -21,7 +21,7 @@ export class FavouritCommponentComponent implements OnInit {
       }
     )
   }
-
+  access:string=String(localStorage.getItem("Alasly-Token"))
   logged:boolean=true;
   favoutites:IProduct[]=[]
   error:string=""
