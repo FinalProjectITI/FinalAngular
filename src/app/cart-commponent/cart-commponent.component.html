@@ -1,5 +1,6 @@
 
-    <ng-container *ngIf="true">
+<div *ngIf="logged;then empty ;else full"></div>
+    <ng-template #full>
       <div class="container">
       <table class="table table-borderless " style="direction: rtl;">
 
@@ -83,21 +84,17 @@
 
 
 
-</ng-container>
-
-  <ng-container #emp>
+    </ng-template>
+  <ng-template #empty>
       <div class="container">
           <div class="card  text-white  Cart-div" >
-              <!-- <img src="/assets/images/cart4.jpg"  class="card-img img_cart" alt="..."> -->
+              <img src="/assets/images/cart4.jpg"  class="card-img img_cart" alt="...">
                             <div class="card-img-overlay">
-                <!-- <h5 class="text-center sala_font">السلة فارغة</h5> -->
               </div>
 
             </div>
             <a  routerLink="/product" class="btn btn-changing " (click)="gotoaddPoductinCart()">أضافة منتجات</a>
+     </div>
 
-
-  </div>
-
-</ng-container>
+    </ng-template>
 

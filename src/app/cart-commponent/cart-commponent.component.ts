@@ -16,22 +16,19 @@ export class CartCommponentComponent implements OnInit {
 
   constructor(private shoppingcart:ShoppingCartService, private route:Router) { }
   access:string=String(localStorage.getItem("Alasly-Token"))
-  logged:boolean=true;
+  logged:boolean=false;
   error:string=""
   ngOnInit(): void {
     this.shoppingcart.getcard(this.access).subscribe(
         servedata=>
         {
           this.cartlist=servedata
-          this.logged=true
+          // this.logged=true
         },
         error=>{this.error=error
-        this.logged=false
+        // this.logged=false
         console.log(error)
         }
-
-
-
     )
 
       }
@@ -61,7 +58,7 @@ export class CartCommponentComponent implements OnInit {
           servedata=>
           {
 
-            this.logged=true
+            this.logged=false
           },
           error=>{this.error=error
           this.logged=false

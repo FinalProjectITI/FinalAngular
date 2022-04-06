@@ -108,17 +108,17 @@ export class OneProductCommponentComponent implements OnInit {
   addproducttocard( ProdId:any,Quantity:any)
   {
 
-    this.router.navigate(['shopingcart'])
     var product=new Posproduct(ProdId,Quantity)
-
+    
     this.postproduct.posttocard(product,this.access).subscribe(
-
+      
       data=>{this.Products
-                this.logged=true
-              },
-              error=>{this.error=error
-              this.logged=false
-              console.log(error)
+        this.logged=true
+        this.router.navigate(['shopingcart'])
+      },
+      error=>{this.error=error
+        this.logged=false
+        console.log(error)
               }
 
 

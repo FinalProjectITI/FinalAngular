@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label for="username">اسم المستخدم</label>
                 <input type="text"  [class.is-invalid]="UserName?.invalid && UserName?.touched" formControlName="UserName" id="username" name="UserName" class="form-control">
-                <div *ngIf="UserName?.errors">
+                <div *ngIf="UserName?.errors&& UserName?.touched">
                     <small class="text-danger" *ngIf="UserName?.errors?.['required']">User Name Required</small>
                     <small class="text-danger"
                         *ngIf="UserName?.errors?.['pattern']">*must contain min 6 capital and small chars only
@@ -30,7 +30,7 @@
             <div class="form-group">
                 <label for="email">البريد الالكتروني</label>
                 <input type="email" [class.is-invalid]="Email?.invalid && Email?.touched" id="Email" name="Email" formControlName="Email" class="form-control">
-                <div *ngIf="Email?.errors">
+                <div *ngIf="Email?.errors && Email?.touched">
                     <small class="text-danger" *ngIf="Email?.errors?.['required']">Required email</small>
                     <small class="text-danger"*ngIf="Email?.errors?.['pattern']">*must contain . and @</small>
                 </div>
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label for="password">كلمة السر</label>
                 <input type="password" [class.is-invalid]="Password?.invalid && Password?.touched" formControlName="Password" id="password" name="txtPassword" class="form-control">
-                <div *ngIf="Password?.errors">
+                <div *ngIf="Password?.errors && Password?.touched">
                     <small class="text-danger" *ngIf="Password?.errors?.['required']">Password required</small>
                     <small class="text-danger" *ngIf="Password?.errors?.['pattern']">Password must contain 6 chars at least </small>
                     
@@ -51,7 +51,7 @@
             <div class="form-group">
                 <label for="conPassword">تأكيد كلمة السر</label>
                 <input type="password" formControlName="ConfirmPassword" [class.is-invalid]="ConfirmPassword?.invalid && ConfirmPassword?.touched" id="conPassword" name="txtConfirmPassword" class="form-control">
-                <div *ngIf="RegisterForm?.errors">
+                <div *ngIf="RegisterForm?.errors && ConfirmPassword?.touched">
                     <small class="text-danger" *ngIf="ConfirmPassword?.errors?.['required']">Required &</small>
                     <small class="text-danger" *ngIf="RegisterForm?.errors?.['Miss_match']">Conirm Password Not match Password </small>
                 </div>
@@ -65,7 +65,7 @@
                     <option value="">أختر</option>
                     <option value="1" *ngFor="let source of sources">{{source}}</option>
                 </select>
-                <small class="text-danger" *ngIf="About?.errors?.['required']">*required</small>
+                <small class="text-danger" *ngIf="About?.errors?.['required'] && About?.touched">*required</small>
             </div>
 
             <!--Register-->
