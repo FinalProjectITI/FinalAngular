@@ -31,6 +31,7 @@ clicked=0;
     {
       this.isLogin=true;
       this.userName=String(localStorage.getItem('Alasly-UserName'));
+      console.log(this.isLogin);
     }
   }
   GetOneCategory(id: number) {
