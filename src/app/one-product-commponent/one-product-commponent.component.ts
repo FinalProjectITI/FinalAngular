@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { favouriteService } from '../services/favoutite.service';
 import { OneProductService } from '../services/one-product.service';
 import { SimilarProductService } from '../services/similar-product.service';
 import { IOneProduct } from '../Shared Classes/IOneProduct';
@@ -16,9 +17,13 @@ export class OneProductCommponentComponent implements OnInit {
   productId?: number;
   Products: Array<IOneProduct> = [];
   SimilarProducts: Array<IProduct> = [];
+  FavouriteProducts: Array<IProduct> = [];
   errormsg: string = "";
+  favourite: boolean = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private oneProduct: OneProductService, private semiProducts: SimilarProductService) { }
+  constructor(private route: ActivatedRoute, private router: Router, 
+    private oneProduct: OneProductService, private semiProducts: SimilarProductService, 
+    private favouriteProduct:favouriteService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -26,6 +31,7 @@ export class OneProductCommponentComponent implements OnInit {
       this.oneProduct.GetProduct(this.productId).subscribe(
         data => {
           this.Products.push(data);
+          this.getFavourite();
           this.ShowSimilar();
         },
         error => { this.errormsg = error }
@@ -44,6 +50,31 @@ export class OneProductCommponentComponent implements OnInit {
         error => { this.errormsg = error }
       )
     })
+  }
+
+  getFavourite(){
+    this.favouriteProduct.GetAllFavourites().subscribe(
+      data => {
+        this.FavouriteProducts = data;
+        this.FavouriteProducts.forEach(element => {
+          if(element.id == this.Products[0].id){
+            this.favourite = true;
+          }
+        });
+      },
+      error => { this.errormsg = error }
+    )
+  }
+
+  AddToFavourite() {
+    if (this.favourite) {
+      this.favouriteProduct.DeleteFavourite(this.Products[0].id)
+      this.favourite = false;
+    } else {
+      this.favouriteProduct.Addfavourite(this.Products[0].id);
+      this.favourite = true;
+    }
+
   }
 
   GoToProduct(id: number) {
