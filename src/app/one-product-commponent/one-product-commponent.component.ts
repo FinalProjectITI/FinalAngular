@@ -20,6 +20,7 @@ export class OneProductCommponentComponent implements OnInit {
   FavouriteProducts: Array<IProduct> = [];
   errormsg: string = "";
   favourite: boolean = false;
+  access:string=String(localStorage.getItem("Alasly-Token"))
 
   constructor(private route: ActivatedRoute, private router: Router, 
     private oneProduct: OneProductService, private semiProducts: SimilarProductService, 
@@ -53,7 +54,7 @@ export class OneProductCommponentComponent implements OnInit {
   }
 
   getFavourite(){
-    this.favouriteProduct.GetAllFavourites().subscribe(
+    this.favouriteProduct.GetAllFavourites(this.access).subscribe(
       data => {
         this.FavouriteProducts = data;
         this.FavouriteProducts.forEach(element => {
@@ -67,12 +68,18 @@ export class OneProductCommponentComponent implements OnInit {
   }
 
   AddToFavourite() {
-    if (this.favourite) {
-      this.favouriteProduct.DeleteFavourite(this.Products[0].id)
-      this.favourite = false;
-    } else {
-      this.favouriteProduct.Addfavourite(this.Products[0].id);
-      this.favourite = true;
+    if(this.access != ""){
+      if (this.favourite) {
+        this.favouriteProduct.DeleteFavourite(this.Products[0].id,this.access)
+        this.favourite = false;
+      } else {
+        this.favouriteProduct.Addfavourite(this.Products[0].id,this.access);
+        this.favourite = true;
+      }
+    }
+    else{
+      this.router.navigate(['login']);
+      window.scrollTo(80, 80);
     }
 
   }
