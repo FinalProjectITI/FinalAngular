@@ -20,11 +20,11 @@
                     <small>{{product.description}} {{product.category}}</small><br>
                     <small>الموسم : {{product.season}}</small>
                 </div>
-                <div class="d-flex">
-                    <button class="btn defcolor flex-shrink-0" type="button">
+                <div class="d-flex"  *ngFor="let productincart of Products">
+                    <button (click)="addproducttocard(productincart.id,quantityinput.value)"  class="btn defcolor flex-shrink-0" type="button">
                         أضف الي العربه
                     </button>
-                    <input class="form-control text-center me-1" id="inputQuantity" type="number" value="1"
+                    <input  #quantityinput  class="form-control text-center me-1" id="inputQuantity" type="number" value="1"
                         style="max-width: 4rem" />
                        <p>&nbsp;</p> 
                        <button class="btn btn-fav flex-shrink-0 curs" type="button" (click)="AddToFavourite()" [class.add]="favourite">

@@ -29,4 +29,8 @@ export class OrderProductComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.Orders)
   }
+  DeleteOrder(orderid:number){
+    console.log("here"+orderid)
+    this.orderservice.DeleteOrder(orderid,this.access).subscribe(data=>{console.log("done"),window.location.reload()},error=>this.error=error)
+  }
 }

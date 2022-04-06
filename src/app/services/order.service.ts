@@ -23,8 +23,8 @@ export class orderService {
     }))
   }
 
-  DeleteOrder(ProductId:number,access:string){
-    return this.http.delete(this.Url+"/"+ProductId+"",this.Header(access)).pipe(catchError((err)=>{
+  DeleteOrder(OrderID:number,access:string){
+    return this.http.delete(this.Url+"/"+OrderID+"",this.Header(access)).pipe(catchError((err)=>{
       return throwError(err.message ||"Not allowed");
     }))
   }

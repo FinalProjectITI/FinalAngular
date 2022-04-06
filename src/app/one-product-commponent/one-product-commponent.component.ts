@@ -1,3 +1,5 @@
+import { Posproduct } from './../Shared Classes/posproduct';
+import { ShoppingCartService } from './../services/shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { favouriteService } from '../services/favoutite.service';
@@ -24,7 +26,7 @@ export class OneProductCommponentComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, 
     private oneProduct: OneProductService, private semiProducts: SimilarProductService, 
-    private favouriteProduct:favouriteService) { }
+    private favouriteProduct:favouriteService,private postproduct:ShoppingCartService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -90,4 +92,27 @@ export class OneProductCommponentComponent implements OnInit {
     window.scrollTo(80, 80);
   }
 
+  logged:boolean=false;
+  error:string=""
+  addproducttocard( ProdId:any,Quantity:any)
+  {
+
+    this.router.navigate(['shopingcart'])
+    var product=new Posproduct(ProdId,Quantity)
+
+    this.postproduct.posttocard(product,this.access).subscribe(
+
+      data=>{this.Products
+                this.logged=true
+              },
+              error=>{this.error=error
+              this.logged=false
+              console.log(error)
+              }
+
+
+    );
+
+
+  }
 }

@@ -24,8 +24,10 @@ const routes: Routes = [
   {path:'search/:value',component:SearchCommponentComponent},
   {path:'register',component:RegisterComponent},
   {path:'order',component:OrderProductComponent},
+  {path:'shopingcart',component:CartCommponentComponent},
+  {path:'products',component:HomeCommponentComponent},
+  {path:'productstocart',component:FavouritCommponentComponent},
   {path:'**',component:NotFoundPageComponent},
- 
 ];
 
 @NgModule({

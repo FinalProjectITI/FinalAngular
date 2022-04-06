@@ -19,7 +19,7 @@
           </button>
         </form>
 
-        <div *ngIf="isLogin; then thenBlocked; eles elseBlocked">
+        <div *ngIf="isLogin; then thenBlocked; else elseBlocked">
 
         </div>
         <ng-template #thenBlocked>

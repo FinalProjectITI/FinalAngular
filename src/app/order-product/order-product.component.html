@@ -13,6 +13,7 @@
                             <th>الموقف</th>
                             <th>العنوان</th>
                             <th>المبلغ المطلوب سداده</th>   
+                            <th>رقم الهاتف</th> 
                         </tr>
                         <tr *ngFor="let order of Orders">
                             <td *ngIf="order.status==0">تحت الطلب</td>
@@ -21,9 +22,9 @@
                             <td *ngIf="order.status==3">تم الغاء الطلب</td>
                             <td>{{order.address}}</td>
                             <td>{{order.totalPrice}}</td>
-
+                            <td>{{order.phone}}</td>
                             <td *ngIf="order.status==0">  
-                                <button class="btn text-danger btn-link" style="text-decoration: none;"><i class="fas fa-window-close"></i> الغاء الطلب </button>
+                                <button class="btn text-danger btn-link" style="text-decoration: none;" (click)="DeleteOrder(order.id)"><i class="fas fa-window-close"></i> الغاء الطلب </button>
                             </td>
                             <td *ngIf="order.status==1" >
                                 <p>ف الطريق  <i class="fas fa-truck text-success"></i></p>

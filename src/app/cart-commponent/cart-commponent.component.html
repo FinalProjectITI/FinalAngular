@@ -1,120 +1,103 @@
-    
+
     <ng-container *ngIf="true">
-        <div class="container">
-        <table class="table table-borderless " style="direction: rtl;">
-            
-      
-       
-        <thead>
-          <tr class="table-dark  " style="height: 50px;font-size: 30px;">
-            <th id="monatag-word">المنتج</th>
-            <th scope="col">السعر</th>
-            <th scope="col">الكمية</th>
-            <th scope="col">الأجمالي</th>
-            <th scope="col"></th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-                <div class="card mb-3" style="max-width: 540px; border: none;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="/assets/images/cap.png" class="img-fluid rounded-start" alt="..."> 
-                      </div>
-                      <div class="col-md-8 card-cart-div">
-                        <div class="card-body">
-                          <h5 class="card-title" style="padding-top:30px;">منتج اصلي فاخر</h5>
-                          <p class="card-text"><small class="text-muted" ></small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-           </td>
-             <td class="th-padding">
-             15
-                
-             </td>
-            <td class="th-padding" >3</td>
-            <td class="th-padding">45</td>
-            <td class="th-padding" >
-                <button type="button" class="btn btn-changing">حذف</button>
-                
-            </td>
-          </tr>
-         
-          <!-- multy product static -->
-          <tr>
-            <td>
-                <div class="card mb-3" style="max-width: 540px; border: none;">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                        <img src="/assets/images/cap.png" class="img-fluid rounded-start" alt="..."> 
-                      </div>
-                      <div class="col-md-8 card-cart-div" >
-                        <div class="card-body">
-                          <h5 class="card-title" style="padding-top:30px;">منتج اصلي فاخر</h5>
-                          <p class="card-text"><small class="text-muted" ></small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-           </td>
-             <td class="th-padding">
-             15
-                
-             </td>
-            <td class="th-padding" >3</td>
-            <td class="th-padding">45</td>
-            <td class="th-padding" >
-              <button type="button" class="btn btn-changing">حذف</button>
-              
-          </td>
-           
-          </tr>
-          
-          
-          <!-- end -->
-          <tr>
-            <td>
-              <button  class="btn btn-changing">حذف الكل</button>
-            <button  class="btn btn-changing">تعديل</button></td>
-          </tr>
-        </tbody>
-    </table>
-    <div>
-      <h1 id="egmaly-word">الأجمالي</h1>
-       <h1 id="h1-egmaly-cart"> 5000</h1>
-    </div>
-    <div  style="display:flex">
-    <div>
-      <a routerLink="/OneCategory-Commponent" class=" btn btn-changing">متابعة التسوق</a>
-  </div>
-  <div style="margin-left: 30px;">
-      <a href="#" class="btn btn-changing "  style="float:right">الدفع</a>
-  </div>
-        </div>
-        </div>
-       
-        
-    
-  
-  </ng-container>
+      <div class="container">
+      <table class="table table-borderless " style="direction: rtl;">
 
-    <ng-container  >
-        <div class="container">
-            <div class="card  text-white  Cart-div" >
-                <img src="/assets/images/cart4.jpg"  class="card-img img_cart" alt="...">
-                              <div class="card-img-overlay">
-                  <h5 class="text-center sala_font">السلة فارغة</h5>
+
+
+      <thead>
+        <tr class="table-dark  " style="height: 50px;font-size: 30px;">
+          <th id="monatag-word">المنتج</th>
+          <th scope="col">السعر</th>
+          <th scope="col">الكمية</th>
+          <th scope="col">الأجمالي</th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartlist?.productsVCart">
+          <td>
+              <div class="card mb-3" style="max-width: 540px; border: none;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img [src]="item.productVM.firstImage" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8 card-cart-div">
+                      <div class="card-body">
+                        <h5 class="card-title" style="padding-top:30px;">{{item.productVM.name}}</h5>
+                        <p class="card-text"><small class="text-muted" ></small></p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                
-              </div>
-              <a  routerLink="/home" class="btn btn-changing ">أضافة منتجات</a>
-              
-      
-    </div>
+         </td>
+           <td class="th-padding">
+        {{item.productVM.price}}
 
-  </ng-container>
+           </td>
+          <td class="th-padding" >{{item.quntityOfProduct}}
+
+
+
+
+
+          </td>
+          <td class="th-padding">{{item.totalPrice}}</td>
+          <div class="update">
+          <td class="th-padding" >
+
+              <button type="button"  (click)="deleletprduct(item.productVM.id)" class="btn btn-changing update">حذف{{item.productVM.id}}</button>
+              <input      [value]="item.quntityOfProduct "    #quantityinput  class="form-control text-center me-1  update" id="inputQuantity" type="number"
+              style="max-width: 4rem" />
+
+             <button  class="btn btn-changing  update" (click)="  updatecart(item.productVM.id,quantityinput.value) "> تعديل</button>
+
+          </td>
+        </div>
+        </tr>
+
+
+        <!-- end -->
+        <tr>
+          <td>
+            <button  class="btn btn-changing" (click)="Deletcard()">حذف الكل </button>
+          <!-- <button  class="btn btn-changing"click> تعديل</button></td> -->
+        </tr>
+      </tbody>
+  </table>
+  <div>
+    <h1 id="egmaly-word">الأجمالي</h1>
+     <h1 id="h1-egmaly-cart"> {{cartlist?.totalCartPrice}}</h1>
+  </div>
+  <div  style="display:flex">
+  <div>
+    <a routerLink="/OneCategory-Commponent" class=" btn btn-changing"  (click)="GotoProduct()">متابعة التسوق</a>
+</div>
+<div style="margin-left: 30px;">
+    <!-- <a href="#" class="btn btn-changing "  style="float:right">الدفع</a> -->
+</div>
+      </div>
+      </div>
+
+
+
+
+</ng-container>
+
+  <ng-container #emp>
+      <div class="container">
+          <div class="card  text-white  Cart-div" >
+              <!-- <img src="/assets/images/cart4.jpg"  class="card-img img_cart" alt="..."> -->
+                            <div class="card-img-overlay">
+                <!-- <h5 class="text-center sala_font">السلة فارغة</h5> -->
+              </div>
+
+            </div>
+            <a  routerLink="/product" class="btn btn-changing " (click)="gotoaddPoductinCart()">أضافة منتجات</a>
+
+
+  </div>
+
+</ng-container>
 
