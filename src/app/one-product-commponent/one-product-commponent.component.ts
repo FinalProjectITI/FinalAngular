@@ -27,6 +27,7 @@ export class OneProductCommponentComponent implements OnInit {
     private favouriteProduct:favouriteService) { }
 
   ngOnInit(): void {
+    console.log(this.access)
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.productId = parseInt(params.get('id')!);
       this.oneProduct.GetProduct(this.productId).subscribe(
@@ -54,21 +55,26 @@ export class OneProductCommponentComponent implements OnInit {
   }
 
   getFavourite(){
-    this.favouriteProduct.GetAllFavourites(this.access).subscribe(
-      data => {
-        this.FavouriteProducts = data;
-        this.FavouriteProducts.forEach(element => {
-          if(element.id == this.Products[0].id){
-            this.favourite = true;
-          }
-        });
-      },
-      error => { this.errormsg = error }
-    )
+    if(this.access != "null"){
+      this.favouriteProduct.GetAllFavourites(this.access).subscribe(
+        data => {
+          this.FavouriteProducts = data;
+          this.FavouriteProducts.forEach(element => {
+            if(element.id == this.Products[0].id){
+              this.favourite = true;
+            }
+          });
+        },
+        error => { this.errormsg = error }
+      )
+    }
+    else{
+      this.favourite = false;
+    }
   }
 
   AddToFavourite() {
-    if(this.access != ""){
+    if(this.access != "null"){
       if (this.favourite) {
         this.favouriteProduct.DeleteFavourite(this.Products[0].id,this.access)
         this.favourite = false;

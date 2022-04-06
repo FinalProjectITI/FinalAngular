@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
           console.log("dsfcsd"+error)
         });
       console.log(this.response);
+      this.router.navigate(['home']);
+      window.scrollTo(80, 80);
       if(this.logge==false)
         console.log("Error")
     }
