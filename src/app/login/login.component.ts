@@ -35,9 +35,11 @@ export class LoginComponent implements OnInit {
         this.loginserves.login(this.Email?.value,this.Password?.value).subscribe(data=>{
          localStorage.setItem('Alasly-Token',data.token);
          localStorage.setItem('Alasly-UserName',this.Email?.value),this.logge=true;
-         this.router.navigate(['home']);
+         window.location.replace('/home')
          window.scrollTo(80, 80);
          this.loginSuccess = true;
+         
+        // window.location.reload()
         },
         error=>{
           console.log("dsfcsd"+error);

@@ -54,4 +54,10 @@ clicked=0;
     else alert("الرجاء إدخال قيمة للبحث")
     window.scrollTo(80,80);
   }
+  Logout(){
+    localStorage.removeItem('Alasly-UserName'),
+    localStorage.removeItem('Alasly-Token')
+    window.location.replace('/home')
+    //this.router.navigate(['/home'])
+  }
 }

@@ -1,57 +1,25 @@
-import { LoginService } from './../services/AuthentactionService';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
-})
-export class LoginComponent implements OnInit {
-  loginSuccess:boolean = true;
+import { LoginComponent } from './login.component';
 
-  constructor(private router:Router,private FB:FormBuilder,private loginserves:LoginService) { }
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
-  LoginForm=this.FB.group({
-    Email:["",[Validators.required,Validators.pattern("^[A-Za-z_]{6,}$")]],
-    Password:["",[Validators.required,Validators.pattern("")]]
-  })
-  get Email(){
-    return this.LoginForm.get("Email")
-  }
-  get Password(){
-    return this.LoginForm.get("Password")
-  }
-  
-  ngOnInit(): void {
-  }
-  /* Login():boolean{
-    if(this.Email?.value=="bbeshoymikhail@gmail.com"&&this.Password?.value=="2339242")
-    {
-      this.LoginForm.patchValue({
-        Email:"",
-        Password:""
-      })
-      this.loginSuccess=true;
-      this.router.navigateByUrl('/home')
-    } */
-    response:any
-    logge:boolean=false
-    Login ()
-    {
-      console.log("asd");
-        this.loginserves.login(this.Email?.value,this.Password?.value).subscribe(data=>{
-         localStorage.setItem('Alasly-Token',data.token);
-         localStorage.setItem('Alasly-UserName',this.Email?.value),this.logge=true},
-        error=>{
-          console.log("dsfcsd"+error)
-        });
-      console.log(this.response);
-      if(this.logge==false)
-        console.log("Error")
-    }
-  /*   this.loginSuccess=false;
-    return false;
-  } */
-}
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ LoginComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

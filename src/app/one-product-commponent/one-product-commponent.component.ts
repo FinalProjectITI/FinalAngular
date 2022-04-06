@@ -77,12 +77,17 @@ export class OneProductCommponentComponent implements OnInit {
 
   AddToFavourite() {
     if(this.access != "null"){
-      if (this.favourite) {
-        this.favouriteProduct.DeleteFavourite(this.Products[0].id,this.access)
-        this.favourite = false;
+      if (this.favourite){
+        console.log("bitchess")
+        this.favouriteProduct.DeleteFavourite(this.Products[0].id,this.access).subscribe(data=>
+          {
+          data 
+          this.favourite = false;});
+        
       } else {
-        this.favouriteProduct.Addfavourite(this.Products[0].id,this.access);
-        this.favourite = true;
+        this.favouriteProduct.Addfavourite(this.Products[0].id,this.access).subscribe(data=>{data
+          this.favourite = true}
+          );
       }
     }
     else{

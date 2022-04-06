@@ -28,14 +28,14 @@ export class favouriteService {
     }))
   }
 
-  DeleteFavourite(ProductId:number,access:string){
-    return this.http.delete(this.Url+"/"+ProductId+"",this.Header(access)).pipe(catchError((err)=>{
+  DeleteFavourite(id:number,access:string){
+    return this.http.delete(this.Url+"/"+id,this.Header(access)).pipe(catchError((err)=>{
       return throwError(err.message ||"Not allowed");
     }))
   }
 
-  Addfavourite(ProductId:number,access:string){
-    return this.http.post(this.Url+"?ProductID="+ProductId+"",this.Header(access)).pipe(catchError((err)=>{
+  Addfavourite(ProductID:number,access:string){
+    return this.http.post(this.Url+"?ProductID="+ProductID,[],this.Header(access)).pipe(catchError((err)=>{
       return throwError(err.message ||"Not allowed");
     }))
   }

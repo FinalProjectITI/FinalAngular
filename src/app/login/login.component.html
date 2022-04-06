@@ -6,7 +6,7 @@
         <div class="card-header defform text-white text-center shadow">
             تسجيل الدخول
         </div>
-        <form class="container card shadow"  (ngSubmit)="Login()">
+        <form class="container card shadow" [formGroup]="LoginForm"  (ngSubmit)="Login()">
             <br>
             <!--Username-->
             <div class="form-group">
@@ -24,7 +24,7 @@
                 <input type="password" [class.is-invalid]="Password?.invalid && Password?.touched" formControlName="Password" id="password" name="txtPassword" class="form-control">
                 <div *ngIf="Password?.errors">
                     <small class="text-danger" *ngIf="Password?.errors?.['required']">Password required</small>
-                    <small class="text-danger" *ngIf="Password?.errors?.['pattern']">Password inncoreect </small>
+                    <small class="text-danger" *ngIf="Password?.errors?.['pattern']">Password inncoreect Format </small>
                 </div>
             </div>
 
