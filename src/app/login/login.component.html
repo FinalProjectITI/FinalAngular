@@ -6,7 +6,7 @@
         <div class="card-header defform text-white text-center shadow">
             تسجيل الدخول
         </div>
-        <form class="container card shadow" [formGroup]="LoginForm" (ngSubmit)="Login()">
+        <form class="container card shadow"  (ngSubmit)="Login()">
             <br>
             <!--Username-->
             <div class="form-group">
@@ -31,7 +31,7 @@
             <!--Login-->
             <br>
             <div class="d-grid gap-2">
-             <button type="submit" class="btn defcolor btn-sm" [disabled]="LoginForm?.invalid">تسجيل</button>
+             <button type="submit" class="btn defcolor btn-sm" [disabled]="LoginForm?.invalid">دخول</button>
             </div>
             <br>
             <small class="text-danger container text-center" *ngIf="!loginSuccess">المستخدم غير موجود</small>

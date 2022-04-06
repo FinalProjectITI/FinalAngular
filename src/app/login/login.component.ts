@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginSuccess:boolean = true;
+  loginSuccess:boolean = false;
 
   constructor(private router:Router,private FB:FormBuilder,private loginserves:LoginService) { }
 
@@ -34,13 +34,17 @@ export class LoginComponent implements OnInit {
       console.log("asd");
         this.loginserves.login(this.Email?.value,this.Password?.value).subscribe(data=>{
          localStorage.setItem('Alasly-Token',data.token);
-         localStorage.setItem('Alasly-UserName',this.Email?.value),this.logge=true},
+         localStorage.setItem('Alasly-UserName',this.Email?.value),this.logge=true;
+         this.router.navigate(['home']);
+         window.scrollTo(80, 80);
+         this.loginSuccess = true;
+        },
         error=>{
-          console.log("dsfcsd"+error)
+          console.log("dsfcsd"+error);
+          this.loginSuccess = false;
         });
       console.log(this.response);
-      this.router.navigate(['home']);
-      window.scrollTo(80, 80);
+      
       if(this.logge==false)
         console.log("Error")
     }
