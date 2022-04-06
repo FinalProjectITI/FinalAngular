@@ -5,5 +5,6 @@ export interface IOrder{
     totalPrice:number,
     status:number,
     address:string,
-    paymentMethod:boolean
+    paymentMethod:boolean,
+    phone:string
 }

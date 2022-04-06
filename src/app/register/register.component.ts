@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   RegisterForm=this.FB.group({
     UserName:["",[Validators.required,Validators.pattern("^[A-Za-z_]{6,}$")]],
     Email:["",[Validators.required,Validators.email,Validators.pattern("[a-z0-9]+@[a-z]+\.[a-z]{2,3}")]],
-    Password:["",[Validators.required,Validators.pattern("")]],
+    Password:["",[Validators.required,Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}")]],
     ConfirmPassword:["",[Validators.required,Validators.pattern("")]],
     About:["",Validators.required]
   },{validator:[validateConfirmPassword]})

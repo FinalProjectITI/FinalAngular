@@ -1,5 +1,5 @@
 import { catchError, Observable, throwError } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IOrder  } from './../Shared Classes/IOrder'
 import { Injectable } from '@angular/core';
 @Injectable({
@@ -8,14 +8,23 @@ import { Injectable } from '@angular/core';
 export class orderService {
   constructor(private http: HttpClient) {}
   Url:string='http://localhost:18352/api/Orders';
-  GetAllOrders(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>(this.Url).pipe(catchError((err)=>{
+
+  Header(access:string) {
+    let header = new HttpHeaders().set("Authorization", "Bearer "+ access);
+    const options = {
+      headers: header,
+    };
+    return options;
+  }
+
+  GetAllOrders(access:string): Observable<IOrder[]> {
+    return this.http.get<IOrder[]>(this.Url,this.Header(access)).pipe(catchError((err)=>{
       return throwError(err.message ||"Server Error");
     }))
   }
 
-  DeleteOrder(ProductId:number){
-    return this.http.delete(this.Url+"/"+ProductId+"").pipe(catchError((err)=>{
+  DeleteOrder(ProductId:number,access:string){
+    return this.http.delete(this.Url+"/"+ProductId+"",this.Header(access)).pipe(catchError((err)=>{
       return throwError(err.message ||"Not allowed");
     }))
   }
