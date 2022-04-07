@@ -51,6 +51,7 @@ export class RegisterComponent implements OnInit {
     this.loginServes.register(this.UserName?.value,this.Email?.value,this.Password?.value).subscribe(data=>{
       console.log(data),
       this.login()
+      
     },
     err=>console.log(err.error.message)
     );
@@ -61,6 +62,7 @@ export class RegisterComponent implements OnInit {
     this.loginServes.login(this.UserName?.value,this.Password?.value).subscribe(data=>{
       localStorage.setItem('Alasly-Token',data.token);
       localStorage.setItem('Alasly-UserName',this.UserName?.value);
+      this.router.navigate(['/home'])
     },error=>{
       console.log("dsfcsd"+error)
     });

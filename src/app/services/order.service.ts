@@ -1,3 +1,4 @@
+
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IOrder  } from './../Shared Classes/IOrder'
@@ -28,11 +29,20 @@ export class orderService {
       return throwError(err.message ||"Not allowed");
     }))
   }
-
- /*  Addfavourite(ProductId:number){
-    return this.http.post(this.Url+"?ProductID="+ProductId+"",this.Options2).pipe(catchError((err)=>{
+  
+  
+  AddOrder(addres:string,phone:string,acces:string){
+    let bj:Object={
+      address:addres,
+      phone:phone
+    }
+    return this.http.post(this.Url,bj,this.Header(acces)).pipe(catchError((err)=>{
       return throwError(err.message ||"Not allowed");
     }))
-  } */
+  }
 
+}
+interface Object{
+  address:string,
+  phone:string
 }

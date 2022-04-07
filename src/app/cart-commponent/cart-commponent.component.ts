@@ -1,4 +1,7 @@
+import { orderService } from './../services/order.service';
+import { IOrder } from './../Shared Classes/IOrder';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { Icart } from '../Shared Classes/Icart';
@@ -14,7 +17,7 @@ export class CartCommponentComponent implements OnInit {
   cartlist?:Icart
 
 
-  constructor(private shoppingcart:ShoppingCartService, private route:Router) { }
+  constructor(private shoppingcart:ShoppingCartService, private route:Router,private FB:FormBuilder,private orderservice:orderService) { }
   access:string=String(localStorage.getItem("Alasly-Token"))
   logged:boolean=false;
   error:string=""
@@ -23,6 +26,7 @@ export class CartCommponentComponent implements OnInit {
         servedata=>
         {
           this.cartlist=servedata
+          console.log(servedata)
           // this.logged=true
         },
         error=>{this.error=error
@@ -99,5 +103,28 @@ export class CartCommponentComponent implements OnInit {
       gotoaddPoductinCart()
       {
         this.route.navigate(['productstocart'])
+      }
+
+      OrderForm=this.FB.group({
+        Phone:["",[Validators.required]],
+        Address:["",[Validators.required]],
+      })
+      get Phone(){
+        return this.OrderForm.get("Phone")
+      }
+      get Address(){
+        return this.OrderForm.get("Address")
+      }
+      order:boolean=false;
+      Order(){
+          if(this.cartlist==null){
+            this.order==false;
+          }
+          else
+            this.order=true;
+      }
+      continueorder(){
+        
+        //this.orderservice.AddOrder(this.Address?.value,this.Phone?.value,this.access).subscribe(data=>this.route.navigate(['order']))
       }
 }
